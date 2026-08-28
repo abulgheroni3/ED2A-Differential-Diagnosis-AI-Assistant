@@ -193,8 +193,8 @@ FastAPI also exposes `/docs`, `/redoc` and `/openapi.json` automatically.
 {
   "age": 52,
   "sex": "M",
-  "evidences": ["E_91", "E_77", "E_201"],
-  "initial_evidence": "E_91",
+  "evidences": ["E_123", "E_201", "E_214", "E_77", "E_66"],
+  "initial_evidence": "E_66",
   "k": 5
 }
 ```
@@ -217,8 +217,8 @@ curl --request POST 'http://localhost:8000/predict-topk' \
   --data '{
     "age": 52,
     "sex": "M",
-    "evidences": ["E_91", "E_77", "E_201"],
-    "initial_evidence": "E_91",
+    "evidences": ["E_123", "E_201", "E_214", "E_77", "E_66"],
+    "initial_evidence": "E_66",
     "k": 5
   }'
 ```
@@ -227,7 +227,7 @@ Integrated request with a chest X-ray:
 
 ```bash
 curl --request POST 'http://localhost:8000/predict-integrated' \
-  --form 'payload={"age":52,"sex":"M","evidences":["E_91","E_77","E_201"],"initial_evidence":"E_91","k":5}' \
+  --form 'payload={"age":52,"sex":"M","evidences":["E_123","E_201","E_214","E_77","E_66"],"initial_evidence":"E_66","k":5}' \
   --form 'chest_xray=@samples/chest-xrays/pneumonia-compatible-opacity.png;type=image/png'
 ```
 
@@ -273,21 +273,19 @@ samples/
     └── SOURCES.md
 ```
 
-The following combinations were derived by intersecting the `symptoms` and `antecedents` identifiers in `release_conditions.json`. They are useful demonstration inputs because each combination is linked to three or four conditions in the metadata.
+All five payloads were executed through the shipped preprocessor and XGBoost model. Their evidence identifiers were checked against `release_evidences.json`, and the panel state was checked against the current frontend trigger logic.
 
-| Sample | Core evidence | Additional evidence | Initial evidence | Conditions linked by the metadata | Chest X-ray panel |
-| --- | --- | --- | --- | --- | --- |
-| Upper-respiratory presentation | `E_181` — nasal congestion or clear rhinorrhea; `E_201` — cough; `E_97` — sore throat | `E_53` — pain related to the reason for seeking care; `E_204_@_V_10` — no recent international travel | `E_97` | Bronchitis; URTI; Influenza | Hidden |
-| Productive cough with fever | `E_91` — fever; `E_77` — coloured sputum or increased sputum with cough; `E_201` — cough | `E_79` — current smoking; `E_181` — nasal congestion or clear rhinorrhea | `E_91` | Bronchitis; URTI; Pneumonia | Shown |
-| Exertional cardiopulmonary presentation | `E_105` — previous myocardial infarction or angina; `E_218` — symptoms worsen on exertion and improve with rest; `E_66` — significant shortness of breath | `E_104` — hypertension or antihypertensive therapy; `E_204_@_V_10` — no recent international travel | `E_66` | Atrial fibrillation; Unstable angina; Stable angina; Acute pulmonary edema | Hidden |
-| Sinonasal/allergic presentation | `E_181` — nasal congestion or clear rhinorrhea; `E_201` — cough; `E_226` — predisposition to common allergies | `E_124` — asthma or previous bronchodilator use; `E_204_@_V_10` — no recent international travel | `E_181` | Allergic sinusitis; Acute rhinosinusitis; Chronic rhinosinusitis | Shown |
-| Pleuritic red-flag presentation | `E_53` — pain related to the reason for seeking care; `E_220` — pain worsened by deep inspiration; `E_151` — swelling in one or more body areas | `E_66` — significant shortness of breath; `E_54_@_V_192` — sharp pain | `E_220` | Spontaneous pneumothorax; Spontaneous rib fracture; Pulmonary embolism | Shown |
+| Sample | Clinical focus | Expected top-ranked diagnosis | Model score | Chest X-ray panel |
+| --- | --- | --- | ---: | --- |
+| `01_upper_respiratory.json` | Nasal congestion, cough and sore throat | URTI | 85.418% | Hidden |
+| `02_respiratory_with_xray.json` | Known COPD with cough, wheeze, sputum change and dyspnoea | Acute COPD exacerbation / infection | 99.319% | Shown |
+| `03_exertional_cardiopulmonary.json` | Exertional symptoms with cardiovascular risk factors | Stable angina | 84.753% | Hidden |
+| `04_sinonasal_allergic.json` | Sinonasal symptoms and allergic background | Allergic sinusitis | 99.9999% | Shown |
+| `05_pleuritic_red_flag.json` | Pleuritic pain, dyspnoea and thromboembolic risk factors | Pulmonary embolism | 99.9993% | Shown |
 
-Compatibility is evaluated on the base evidence identifier. Value-specific tokens such as `E_54_@_V_192` are valid API inputs, but `release_conditions.json` links conditions only to the base `E_54` identifier and does not describe condition-specific value frequencies.
+These values are artifact-specific model scores, not calibrated clinical probabilities. Re-run the cases whenever the model, preprocessor, label encoder or payloads change. The complete evidence map, validation scope and suggested demonstration sequence are documented in `samples/README.md`.
 
-All five files under `samples/cases/` are complete, valid API payloads with fixed illustrative demographics. They can be sent directly to `POST /predict-topk`; age, sex, initial evidence and the learned model all affect the returned ranking. The linked conditions are therefore not hard-coded expected predictions: the table documents metadata compatibility and deterministic user-interface behaviour.
-
-The second sample opens the upload panel because it contains two respiratory evidence identifiers (`E_77`, `E_201`) and one systemic identifier (`E_91`). The fourth exercises the respiratory-plus-context rule through cough (`E_201`) and asthma or prior bronchodilator use (`E_124`). The fifth uses the configured strong-single-evidence rule for pleuritic pain (`E_220`). These triggers only control whether image upload is offered; none directly increases the Pneumonia score.
+Case 02 deliberately represents a COPD exacerbation rather than a forced Pneumonia prediction. The X-ray trigger controls whether imaging can be assessed; it is not a diagnosis. A usable image is evaluated independently, and the experimental fusion stage can adjust only the Pneumonia entry while preserving the original clinical ranking.
 
 Run one of the examples against the JSON endpoint from the repository root:
 
@@ -296,6 +294,8 @@ curl --request POST 'http://localhost:8000/predict-topk' \
   --header 'Content-Type: application/json' \
   --data-binary '@samples/cases/01_upper_respiratory.json'
 ```
+
+The five expected outputs above passed schema validation, catalogue validation, deployed-model inference and X-ray trigger checks. The examples remain educational software fixtures and do not establish clinical validity.
 
 Chest X-ray samples must be JPEG, PNG or WebP and no larger than 10 MB. DICOM files are not accepted by the web form. Keep the source and redistribution terms for every example in `samples/chest-xrays/SOURCES.md`; use “pneumonia-compatible opacity” rather than “confirmed pneumonia” when labelling the positive example, in line with the model's actual target.
 

@@ -2,12 +2,12 @@
   "age": 52,
   "sex": "M",
   "evidences": [
-    "E_91",
-    "E_77",
+    "E_123",
     "E_201",
-    "E_79",
-    "E_181"
+    "E_214",
+    "E_77",
+    "E_66"
   ],
-  "initial_evidence": "E_91",
+  "initial_evidence": "E_66",
   "k": 5
 }
