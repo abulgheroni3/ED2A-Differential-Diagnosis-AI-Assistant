@@ -1,0 +1,44 @@
+# Version control and editor metadata
+.git/
+.gitignore
+.gitattributes
+.github/
+.claude/
+.vscode/
+.idea/
+
+# Build inputs: they are read by the daemon, not needed inside the image
+Dockerfile
+.dockerignore
+compose.yaml
+docker-compose.yml
+docker-compose.yaml
+
+# Python environments and caches
+.venv*/
+venv/
+env/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Local-only files
+*.log
+*.zip
+*.tar
+*.tar.gz
+.env
+.env.*
+
+# Tests are not part of the runtime image
+tests/
+
+# The PyTorch checkpoint is training-only: inference uses the ONNX model.
+artifacts/**/*.pt
+
+# Superseded DDXPlus artifacts, unreferenced by the application code.
+artifacts/old/

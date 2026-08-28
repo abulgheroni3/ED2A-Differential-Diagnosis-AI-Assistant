@@ -1,0 +1,109 @@
+{
+  "schema_version": 1,
+  "service_name": "advanced_pneumonia",
+  "model_architecture": "resnet50",
+  "framework": "pytorch -> onnx",
+  "task": {
+    "type": "binary_image_classification",
+    "description": "Single-label binary classification of a frontal chest radiograph into NO_PNEUMONIA or PNEUMONIA."
+  },
+  "dataset": {
+    "name": "RSNA Pneumonia Detection Challenge (Stage 2) - labelled training set",
+    "annotation_file": "stage_2_train_labels.csv",
+    "label_semantics": "Target=1 marks a radiologist-annotated pulmonary opacity compatible with pneumonia; it is a radiological finding, not a confirmed clinical diagnosis.",
+    "aggregation": "one binary record per patientId using max(Target)",
+    "external_test_set": "official Stage 2 test images are unlabelled; probabilities are exported to /kaggle/working/rsna_stage_2_test_predictions.csv without test metrics"
+  },
+  "class_mapping": {
+    "0": "NO_PNEUMONIA",
+    "1": "PNEUMONIA"
+  },
+  "positive_class_index": 1,
+  "supported_upload_formats": [
+    "JPEG",
+    "PNG",
+    "WebP"
+  ],
+  "input": {
+    "input_size": [
+      224,
+      224
+    ],
+    "channels": 3,
+    "channel_order": "RGB",
+    "grayscale_to_rgb": "The upload is converted to grayscale and then replicated into three identical RGB channels, matching the ImageNet-pretrained backbone.",
+    "resize": "bilinear resize to 224x224 without cropping",
+    "exif_handling": "EXIF orientation is normalised with ImageOps.exif_transpose",
+    "normalization": {
+      "mean": [
+        0.485,
+        0.456,
+        0.406
+      ],
+      "std": [
+        0.229,
+        0.224,
+        0.225
+      ]
+    },
+    "value_range_before_normalization": [
+      0.0,
+      1.0
+    ]
+  },
+  "onnx": {
+    "file": "advanced_pneumonia_model.onnx",
+    "opset": 17,
+    "input_name": "input",
+    "output_name": "logit",
+    "input_shape": [
+      "batch",
+      3,
+      224,
+      224
+    ],
+    "output_shape": [
+      "batch",
+      1
+    ],
+    "dynamic_axes": {
+      "input": "batch",
+      "logit": "batch"
+    }
+  },
+  "output": {
+    "is_logit": true,
+    "note": "The model output is a raw logit; no activation is applied inside the graph.",
+    "activation_required": "sigmoid",
+    "probability_definition": "pneumonia_probability = sigmoid(logit)",
+    "probability_threshold": 0.5,
+    "decision_rule": "class_index = 1 (PNEUMONIA) when sigmoid(logit) >= 0.5, otherwise 0 (NO_PNEUMONIA)"
+  },
+  "training": {
+    "train_fraction": 0.7,
+    "validation_fraction": 0.3,
+    "split_strategy": "patient-level stratified split on the aggregated binary label",
+    "seed": 42,
+    "hyperparameters": {
+      "architecture": "resnet50",
+      "max_epochs": 100,
+      "learning_rate": 0.0001,
+      "weight_decay": 0.0001,
+      "dropout": 0.3,
+      "decision_threshold": 0.5,
+      "early_stopping_patience": 10,
+      "early_stopping_min_delta": 0.0001,
+      "batch_size": 32,
+      "image_size": 224,
+      "optimizer": "AdamW",
+      "scheduler": "ReduceLROnPlateau(monitor=validation_loss)",
+      "loss": "BCEWithLogitsLoss(pos_weight=negatives/positives)",
+      "pos_weight": 3.4386882129277567,
+      "seed": 42,
+      "train_fraction": 0.7,
+      "validation_fraction": 0.3,
+      "fine_tuning": "full backbone"
+    }
+  },
+  "disclaimer": "Educational decision-support prototype. Not a real medical diagnosis. Target=1 marks a radiologist-annotated pulmonary opacity compatible with pneumonia; it is a radiological finding, not a confirmed clinical diagnosis."
+}

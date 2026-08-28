@@ -1,0 +1,14 @@
+fastapi
+uvicorn[standard]
+jinja2
+python-multipart
+pydantic
+httpx
+numpy==2.0.2
+pandas==2.3.3
+scipy==1.16.3
+scikit-learn==1.6.1
+joblib==1.5.3
+xgboost==2.1.4
+onnxruntime==1.29.0
+pillow==12.3.0

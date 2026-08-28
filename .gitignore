@@ -1,0 +1,53 @@
+# Original datasets
+/data/raw/
+
+# Test
+/API_App/tests
+
+# Python virtual environments
+.venv*/
+venv/
+env/
+
+# Python caches
+__pycache__/
+*.py[cod]
+
+# Test and tooling caches
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+coverage.xml
+htmlcov/
+
+# Local environment files and secrets (the example template stays tracked)
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+secrets.json
+
+# Editors and assistant workspaces
+.claude/
+.vscode/
+.idea/
+
+# Logs
+*.log
+logs/
+
+# Project archives
+/API_App.zip
+*.zip
+*.tar
+*.tar.gz
+
+# Training-only checkpoints: inference uses the ONNX model
+artifacts/**/*.pt
+API_App/artifacts/**/*.pt
+
+# Superseded DDXPlus artifacts, unreferenced by the application code
+artifacts/old/
+API_App/artifacts/old/

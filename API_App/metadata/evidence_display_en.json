@@ -1,0 +1,1909 @@
+{
+  "_meta": {
+    "schema_version": 1,
+    "locale": "en",
+    "source_file": "release_evidences.json",
+    "evidence_count": 223,
+    "model_token_contract": "Keep the original evidence code/token unchanged. Use this file only to resolve user-facing English text.",
+    "token_formats": {
+      "boolean": "E_<id>",
+      "valued": "E_<id>_@_<value>"
+    }
+  },
+  "evidences": {
+    "E_91": {
+      "data_type": "B",
+      "is_antecedent": false,
+      "display_text_en": "Patient reports fever, either subjective or measured with a thermometer."
+    },
+    "E_55": {
+      "data_type": "M",
+      "is_antecedent": false,
+      "values_en": {
+        "V_123": "Patient reports no pain.",
+        "V_14": "Patient reports pain in the right iliac wing.",
+        "V_15": "Patient reports pain in the left iliac wing.",
+        "V_16": "Patient reports pain in the right groin.",
+        "V_17": "Patient reports pain in the left groin.",
+        "V_18": "Patient reports pain in the right armpit.",
+        "V_19": "Patient reports pain in the left armpit.",
+        "V_20": "Patient reports pain in the right tonsil.",
+        "V_21": "Patient reports pain in the left tonsil.",
+        "V_22": "Patient reports pain in the anus.",
+        "V_23": "Patient reports pain in the back of the right ankle.",
+        "V_24": "Patient reports pain in the back of the left ankle.",
+        "V_25": "Patient reports pain in the back of the head.",
+        "V_26": "Patient reports pain in the back of the neck.",
+        "V_27": "Patient reports pain in the right forearm.",
+        "V_28": "Patient reports pain in the left forearm.",
+        "V_29": "Patient reports pain in the lower chest.",
+        "V_30": "Patient reports pain in the right biceps.",
+        "V_31": "Patient reports pain in the left biceps.",
+        "V_32": "Patient reports pain in the mouth.",
+        "V_33": "Patient reports pain in the thyroid cartilage.",
+        "V_34": "Patient reports pain in the right ankle.",
+        "V_35": "Patient reports pain in the left ankle.",
+        "V_36": "Patient reports pain in the clitoris.",
+        "V_37": "Patient reports pain in the coccyx.",
+        "V_38": "Patient reports pain in the cervical spine.",
+        "V_39": "Patient reports pain in the thoracic spine.",
+        "V_40": "Patient reports pain in the lumbar spine.",
+        "V_41": "Patient reports pain in the right corner of the mouth.",
+        "V_42": "Patient reports pain in the left corner of the mouth.",
+        "V_43": "Patient reports pain in the outer side of the right foot.",
+        "V_44": "Patient reports pain in the outer side of the left foot.",
+        "V_45": "Patient reports pain in the right elbow.",
+        "V_46": "Patient reports pain in the left elbow.",
+        "V_47": "Patient reports pain in the right popliteal fossa.",
+        "V_48": "Patient reports pain in the left popliteal fossa.",
+        "V_49": "Patient reports pain in the right iliac crest.",
+        "V_50": "Patient reports pain in the left iliac crest.",
+        "V_51": "Patient reports pain in the right thigh.",
+        "V_52": "Patient reports pain in the left thigh.",
+        "V_53": "Patient reports pain in the right side of the neck.",
+        "V_54": "Patient reports pain in the left side of the neck.",
+        "V_55": "Patient reports pain in the right side of the chest.",
+        "V_56": "Patient reports pain in the left side of the chest.",
+        "V_57": "Patient reports pain in the right lower teeth.",
+        "V_58": "Patient reports pain in the left lower teeth.",
+        "V_59": "Patient reports pain in the right upper teeth.",
+        "V_60": "Patient reports pain in the left upper teeth.",
+        "V_61": "Patient reports pain in the top of the tongue.",
+        "V_62": "Patient reports pain in the top of the head.",
+        "V_63": "Patient reports pain in the right ring finger.",
+        "V_64": "Patient reports pain in the left ring finger.",
+        "V_65": "Patient reports pain in the right little finger.",
+        "V_66": "Patient reports pain in the left little finger.",
+        "V_67": "Patient reports pain in the right index finger.",
+        "V_68": "Patient reports pain in the left index finger.",
+        "V_69": "Patient reports pain in the right middle finger.",
+        "V_70": "Patient reports pain in the left middle finger.",
+        "V_72": "Patient reports pain in the top of the right foot.",
+        "V_73": "Patient reports pain in the top of the left foot.",
+        "V_74": "Patient reports pain in the back of the right wrist.",
+        "V_75": "Patient reports pain in the back of the left wrist.",
+        "V_76": "Patient reports pain in the back of the right hand.",
+        "V_77": "Patient reports pain in the back of the left hand.",
+        "V_78": "Patient reports pain in the inner side of the right forearm.",
+        "V_79": "Patient reports pain in the inner side of the left forearm.",
+        "V_80": "Patient reports pain in the palm side of the right wrist.",
+        "V_81": "Patient reports pain in the palm side of the left wrist.",
+        "V_82": "Patient reports pain in the right buttock.",
+        "V_83": "Patient reports pain in the left buttock.",
+        "V_84": "Patient reports pain in the right flank.",
+        "V_85": "Patient reports pain in the left flank.",
+        "V_87": "Patient reports pain in the right iliac fossa.",
+        "V_88": "Patient reports pain in the left iliac fossa.",
+        "V_89": "Patient reports pain in the forehead.",
+        "V_90": "Patient reports pain in the lower gum.",
+        "V_91": "Patient reports pain in the upper gum.",
+        "V_92": "Patient reports pain in the right knee.",
+        "V_93": "Patient reports pain in the left knee.",
+        "V_94": "Patient reports pain in the glans.",
+        "V_95": "Patient reports pain in the right labia majora.",
+        "V_96": "Patient reports pain in the left labia majora.",
+        "V_97": "Patient reports pain in the right big toe.",
+        "V_98": "Patient reports pain in the left big toe.",
+        "V_99": "Patient reports pain in the right hip.",
+        "V_100": "Patient reports pain in the left hip.",
+        "V_101": "Patient reports pain in the upper chest.",
+        "V_102": "Patient reports pain in the hymen.",
+        "V_103": "Patient reports pain in the right upper abdomen.",
+        "V_104": "Patient reports pain in the left upper abdomen.",
+        "V_105": "Patient reports pain in the right hamstring.",
+        "V_106": "Patient reports pain in the left hamstring.",
+        "V_108": "Patient reports pain in the right cheek.",
+        "V_109": "Patient reports pain in the left cheek.",
+        "V_110": "Patient reports pain in the inside of the right cheek.",
+        "V_111": "Patient reports pain in the inside of the left cheek.",
+        "V_113": "Patient reports pain in the right renal fossa.",
+        "V_114": "Patient reports pain in the left renal fossa.",
+        "V_115": "Patient reports pain in the uvula.",
+        "V_116": "Patient reports pain in the right side of the lower lip.",
+        "V_117": "Patient reports pain in the right side of the upper lip.",
+        "V_118": "Patient reports pain in the chin.",
+        "V_119": "Patient reports pain in the right calf.",
+        "V_120": "Patient reports pain in the left calf.",
+        "V_121": "Patient reports pain in the jaw.",
+        "V_122": "Patient reports pain in the nose.",
+        "V_124": "Patient reports pain in the occiput.",
+        "V_125": "Patient reports pain in the right eye.",
+        "V_126": "Patient reports pain in the left eye.",
+        "V_127": "Patient reports pain in the right scapula.",
+        "V_128": "Patient reports pain in the left scapula.",
+        "V_129": "Patient reports pain in the right ear.",
+        "V_130": "Patient reports pain in the left ear.",
+        "V_131": "Patient reports pain in the right second toe.",
+        "V_132": "Patient reports pain in the left second toe.",
+        "V_133": "Patient reports pain in the right third toe.",
+        "V_134": "Patient reports pain in the left third toe.",
+        "V_135": "Patient reports pain in the right fourth toe.",
+        "V_136": "Patient reports pain in the left fourth toe.",
+        "V_137": "Patient reports pain in the palate.",
+        "V_139": "Patient reports pain in the vaginal wall.",
+        "V_140": "Patient reports pain in the right vaginal wall.",
+        "V_141": "Patient reports pain in the left vaginal wall.",
+        "V_142": "Patient reports pain in the right palm.",
+        "V_143": "Patient reports pain in the left palm.",
+        "V_144": "Patient reports pain in the right little toe.",
+        "V_145": "Patient reports pain in the left little toe.",
+        "V_146": "Patient reports pain in the right labia minora.",
+        "V_147": "Patient reports pain in the left labia minora.",
+        "V_148": "Patient reports pain in the pharynx.",
+        "V_149": "Patient reports pain in the sole of the right foot.",
+        "V_150": "Patient reports pain in the sole of the left foot.",
+        "V_151": "Patient reports pain in the right thumb.",
+        "V_152": "Patient reports pain in the left thumb.",
+        "V_153": "Patient reports pain in the pubis.",
+        "V_155": "Patient reports pain in the penis.",
+        "V_158": "Patient reports pain in the scrotum.",
+        "V_159": "Patient reports pain in the right breast.",
+        "V_160": "Patient reports pain in the left breast.",
+        "V_162": "Patient reports pain in the area under the tongue.",
+        "V_163": "Patient reports pain in the area under the jaw.",
+        "V_164": "Patient reports pain in the right heel.",
+        "V_165": "Patient reports pain in the left heel.",
+        "V_166": "Patient reports pain in the right temple.",
+        "V_167": "Patient reports pain in the left temple.",
+        "V_168": "Patient reports pain in the right testicle.",
+        "V_169": "Patient reports pain in the left testicle.",
+        "V_170": "Patient reports pain in the right posterior chest wall.",
+        "V_171": "Patient reports pain in the left posterior chest wall.",
+        "V_172": "Patient reports pain in the right tibia.",
+        "V_173": "Patient reports pain in the left tibia.",
+        "V_174": "Patient reports pain in the trachea.",
+        "V_175": "Patient reports pain in the right trapezius.",
+        "V_176": "Patient reports pain in the left trapezius.",
+        "V_177": "Patient reports pain in the right triceps.",
+        "V_178": "Patient reports pain in the left triceps.",
+        "V_185": "Patient reports pain in the urethra.",
+        "V_186": "Patient reports pain in the vagina.",
+        "V_187": "Patient reports pain in the abdomen.",
+        "V_188": "Patient reports pain in the right vermilion.",
+        "V_189": "Patient reports pain in the left vermilion.",
+        "V_190": "Patient reports pain in the vulval vestibule.",
+        "V_194": "Patient reports pain in the right shoulder.",
+        "V_195": "Patient reports pain in the left shoulder.",
+        "V_197": "Patient reports pain in the upper abdomen."
+      }
+    },
+    "E_53": {
+      "data_type": "B",
+      "is_antecedent": false,
+      "display_text_en": "Patient reports pain related to the reason for seeking care."
+    },
+    "E_57": {
+      "data_type": "M",
+      "is_antecedent": false,
+      "values_en": {
+        "V_123": "Patient reports no pain radiation.",
+        "V_14": "Pain radiates to the right iliac wing.",
+        "V_15": "Pain radiates to the left iliac wing.",
+        "V_16": "Pain radiates to the right groin.",
+        "V_17": "Pain radiates to the left groin.",
+        "V_18": "Pain radiates to the right armpit.",
+        "V_19": "Pain radiates to the left armpit.",
+        "V_20": "Pain radiates to the right tonsil.",
+        "V_21": "Pain radiates to the left tonsil.",
+        "V_22": "Pain radiates to the anus.",
+        "V_23": "Pain radiates to the back of the right ankle.",
+        "V_24": "Pain radiates to the back of the left ankle.",
+        "V_25": "Pain radiates to the back of the head.",
+        "V_26": "Pain radiates to the back of the neck.",
+        "V_27": "Pain radiates to the right forearm.",
+        "V_28": "Pain radiates to the left forearm.",
+        "V_29": "Pain radiates to the lower chest.",
+        "V_30": "Pain radiates to the right biceps.",
+        "V_31": "Pain radiates to the left biceps.",
+        "V_32": "Pain radiates to the mouth.",
+        "V_33": "Pain radiates to the thyroid cartilage.",
+        "V_34": "Pain radiates to the right ankle.",
+        "V_35": "Pain radiates to the left ankle.",
+        "V_36": "Pain radiates to the clitoris.",
+        "V_37": "Pain radiates to the coccyx.",
+        "V_38": "Pain radiates to the cervical spine.",
+        "V_39": "Pain radiates to the thoracic spine.",
+        "V_40": "Pain radiates to the lumbar spine.",
+        "V_41": "Pain radiates to the right corner of the mouth.",
+        "V_42": "Pain radiates to the left corner of the mouth.",
+        "V_43": "Pain radiates to the outer side of the right foot.",
+        "V_44": "Pain radiates to the outer side of the left foot.",
+        "V_45": "Pain radiates to the right elbow.",
+        "V_46": "Pain radiates to the left elbow.",
+        "V_47": "Pain radiates to the right popliteal fossa.",
+        "V_48": "Pain radiates to the left popliteal fossa.",
+        "V_49": "Pain radiates to the right iliac crest.",
+        "V_50": "Pain radiates to the left iliac crest.",
+        "V_51": "Pain radiates to the right thigh.",
+        "V_52": "Pain radiates to the left thigh.",
+        "V_53": "Pain radiates to the right side of the neck.",
+        "V_54": "Pain radiates to the left side of the neck.",
+        "V_55": "Pain radiates to the right side of the chest.",
+        "V_56": "Pain radiates to the left side of the chest.",
+        "V_57": "Pain radiates to the right lower teeth.",
+        "V_58": "Pain radiates to the left lower teeth.",
+        "V_59": "Pain radiates to the right upper teeth.",
+        "V_60": "Pain radiates to the left upper teeth.",
+        "V_61": "Pain radiates to the top of the tongue.",
+        "V_62": "Pain radiates to the top of the head.",
+        "V_63": "Pain radiates to the right ring finger.",
+        "V_64": "Pain radiates to the left ring finger.",
+        "V_65": "Pain radiates to the right little finger.",
+        "V_66": "Pain radiates to the left little finger.",
+        "V_67": "Pain radiates to the right index finger.",
+        "V_68": "Pain radiates to the left index finger.",
+        "V_69": "Pain radiates to the right middle finger.",
+        "V_70": "Pain radiates to the left middle finger.",
+        "V_72": "Pain radiates to the top of the right foot.",
+        "V_73": "Pain radiates to the top of the left foot.",
+        "V_74": "Pain radiates to the back of the right wrist.",
+        "V_75": "Pain radiates to the back of the left wrist.",
+        "V_76": "Pain radiates to the back of the right hand.",
+        "V_77": "Pain radiates to the back of the left hand.",
+        "V_78": "Pain radiates to the inner side of the right forearm.",
+        "V_79": "Pain radiates to the inner side of the left forearm.",
+        "V_80": "Pain radiates to the palm side of the right wrist.",
+        "V_81": "Pain radiates to the palm side of the left wrist.",
+        "V_82": "Pain radiates to the right buttock.",
+        "V_83": "Pain radiates to the left buttock.",
+        "V_84": "Pain radiates to the right flank.",
+        "V_85": "Pain radiates to the left flank.",
+        "V_87": "Pain radiates to the right iliac fossa.",
+        "V_88": "Pain radiates to the left iliac fossa.",
+        "V_89": "Pain radiates to the forehead.",
+        "V_90": "Pain radiates to the lower gum.",
+        "V_91": "Pain radiates to the upper gum.",
+        "V_92": "Pain radiates to the right knee.",
+        "V_93": "Pain radiates to the left knee.",
+        "V_94": "Pain radiates to the glans.",
+        "V_95": "Pain radiates to the right labia majora.",
+        "V_96": "Pain radiates to the left labia majora.",
+        "V_97": "Pain radiates to the right big toe.",
+        "V_98": "Pain radiates to the left big toe.",
+        "V_99": "Pain radiates to the right hip.",
+        "V_100": "Pain radiates to the left hip.",
+        "V_101": "Pain radiates to the upper chest.",
+        "V_102": "Pain radiates to the hymen.",
+        "V_103": "Pain radiates to the right upper abdomen.",
+        "V_104": "Pain radiates to the left upper abdomen.",
+        "V_105": "Pain radiates to the right hamstring.",
+        "V_106": "Pain radiates to the left hamstring.",
+        "V_108": "Pain radiates to the right cheek.",
+        "V_109": "Pain radiates to the left cheek.",
+        "V_110": "Pain radiates to the inside of the right cheek.",
+        "V_111": "Pain radiates to the inside of the left cheek.",
+        "V_113": "Pain radiates to the right renal fossa.",
+        "V_114": "Pain radiates to the left renal fossa.",
+        "V_115": "Pain radiates to the uvula.",
+        "V_116": "Pain radiates to the right side of the lower lip.",
+        "V_117": "Pain radiates to the right side of the upper lip.",
+        "V_118": "Pain radiates to the chin.",
+        "V_119": "Pain radiates to the right calf.",
+        "V_120": "Pain radiates to the left calf.",
+        "V_121": "Pain radiates to the jaw.",
+        "V_122": "Pain radiates to the nose.",
+        "V_124": "Pain radiates to the occiput.",
+        "V_125": "Pain radiates to the right eye.",
+        "V_126": "Pain radiates to the left eye.",
+        "V_127": "Pain radiates to the right scapula.",
+        "V_128": "Pain radiates to the left scapula.",
+        "V_129": "Pain radiates to the right ear.",
+        "V_130": "Pain radiates to the left ear.",
+        "V_131": "Pain radiates to the right second toe.",
+        "V_132": "Pain radiates to the left second toe.",
+        "V_133": "Pain radiates to the right third toe.",
+        "V_134": "Pain radiates to the left third toe.",
+        "V_135": "Pain radiates to the right fourth toe.",
+        "V_136": "Pain radiates to the left fourth toe.",
+        "V_137": "Pain radiates to the palate.",
+        "V_139": "Pain radiates to the vaginal wall.",
+        "V_140": "Pain radiates to the right vaginal wall.",
+        "V_141": "Pain radiates to the left vaginal wall.",
+        "V_142": "Pain radiates to the right palm.",
+        "V_143": "Pain radiates to the left palm.",
+        "V_144": "Pain radiates to the right little toe.",
+        "V_145": "Pain radiates to the left little toe.",
+        "V_146": "Pain radiates to the right labia minora.",
+        "V_147": "Pain radiates to the left labia minora.",
+        "V_148": "Pain radiates to the pharynx.",
+        "V_149": "Pain radiates to the sole of the right foot.",
+        "V_150": "Pain radiates to the sole of the left foot.",
+        "V_151": "Pain radiates to the right thumb.",
+        "V_152": "Pain radiates to the left thumb.",
+        "V_153": "Pain radiates to the pubis.",
+        "V_155": "Pain radiates to the penis.",
+        "V_158": "Pain radiates to the scrotum.",
+        "V_159": "Pain radiates to the right breast.",
+        "V_160": "Pain radiates to the left breast.",
+        "V_162": "Pain radiates to the area under the tongue.",
+        "V_163": "Pain radiates to the area under the jaw.",
+        "V_164": "Pain radiates to the right heel.",
+        "V_165": "Pain radiates to the left heel.",
+        "V_166": "Pain radiates to the right temple.",
+        "V_167": "Pain radiates to the left temple.",
+        "V_168": "Pain radiates to the right testicle.",
+        "V_169": "Pain radiates to the left testicle.",
+        "V_170": "Pain radiates to the right posterior chest wall.",
+        "V_171": "Pain radiates to the left posterior chest wall.",
+        "V_172": "Pain radiates to the right tibia.",
+        "V_173": "Pain radiates to the left tibia.",
+        "V_174": "Pain radiates to the trachea.",
+        "V_175": "Pain radiates to the right trapezius.",
+        "V_176": "Pain radiates to the left trapezius.",
+        "V_177": "Pain radiates to the right triceps.",
+        "V_178": "Pain radiates to the left triceps.",
+        "V_185": "Pain radiates to the urethra.",
+        "V_186": "Pain radiates to the vagina.",
+        "V_187": "Pain radiates to the abdomen.",
+        "V_188": "Pain radiates to the right vermilion.",
+        "V_189": "Pain radiates to the left vermilion.",
+        "V_190": "Pain radiates to the vulval vestibule.",
+        "V_194": "Pain radiates to the right shoulder.",
+        "V_195": "Pain radiates to the left shoulder.",
+        "V_197": "Pain radiates to the upper abdomen."
+      }
+    },
+    "E_54": {
+      "data_type": "M",
+      "is_antecedent": false,
+      "values_en": {
+        "V_11": "Pain quality is not specified.",
+        "V_71": "Patient describes the pain as tearing.",
+        "V_112": "Patient describes the pain as shooting.",
+        "V_154": "Patient describes the pain as distressing.",
+        "V_161": "Patient reports tenderness in the painful area.",
+        "V_179": "Patient describes the pain as stabbing.",
+        "V_180": "Patient describes the pain as pulling.",
+        "V_181": "Patient describes the pain as burning.",
+        "V_182": "Patient describes the pain as like a cramp.",
+        "V_183": "Patient describes the pain as heavy.",
+        "V_184": "Patient describes the pain as throbbing.",
+        "V_191": "Patient describes the pain as severe.",
+        "V_192": "Patient describes the pain as sharp.",
+        "V_193": "Patient describes the pain as nauseating.",
+        "V_196": "Patient describes the pain as frightening.",
+        "V_198": "Patient describes the pain as exhausting."
+      }
+    },
+    "E_59": {
+      "data_type": "C",
+      "is_antecedent": false,
+      "values_en": {
+        "0": "Patient-rated pain onset speed: 0/10.",
+        "1": "Patient-rated pain onset speed: 1/10.",
+        "2": "Patient-rated pain onset speed: 2/10.",
+        "3": "Patient-rated pain onset speed: 3/10.",
+        "4": "Patient-rated pain onset speed: 4/10.",
+        "5": "Patient-rated pain onset speed: 5/10.",
+        "6": "Patient-rated pain onset speed: 6/10.",
+        "7": "Patient-rated pain onset speed: 7/10.",
+        "8": "Patient-rated pain onset speed: 8/10.",
+        "9": "Patient-rated pain onset speed: 9/10.",
+        "10": "Patient-rated pain onset speed: 10/10."
+      }
+    },
+    "E_56": {
+      "data_type": "C",
+      "is_antecedent": false,
+      "values_en": {
+        "0": "Patient-rated pain intensity: 0/10.",
+        "1": "Patient-rated pain intensity: 1/10.",
+        "2": "Patient-rated pain intensity: 2/10.",
+        "3": "Patient-rated pain intensity: 3/10.",
+        "4": "Patient-rated pain intensity: 4/10.",
+        "5": "Patient-rated pain intensity: 5/10.",
+        "6": "Patient-rated pain intensity: 6/10.",
+        "7": "Patient-rated pain intensity: 7/10.",
+        "8": "Patient-rated pain intensity: 8/10.",
+        "9": "Patient-rated pain intensity: 9/10.",
+        "10": "Patient-rated pain intensity: 10/10."
+      }
+    },
+    "E_58": {
+      "data_type": "C",
+      "is_antecedent": false,
+      "values_en": {
+        "0": "Patient-rated precision of pain location: 0/10.",
+        "1": "Patient-rated precision of pain location: 1/10.",
+        "2": "Patient-rated precision of pain location: 2/10.",
+        "3": "Patient-rated precision of pain location: 3/10.",
+        "4": "Patient-rated precision of pain location: 4/10.",
+        "5": "Patient-rated precision of pain location: 5/10.",
+        "6": "Patient-rated precision of pain location: 6/10.",
+        "7": "Patient-rated precision of pain location: 7/10.",
+        "8": "Patient-rated precision of pain location: 8/10.",
+        "9": "Patient-rated precision of pain location: 9/10.",
+        "10": "Patient-rated precision of pain location: 10/10."
+      }
+    },
+    "E_159": {
+      "data_type": "B",
+      "is_antecedent": false,
+      "display_text_en": "Patient reports loss of consciousness."
+    },
+    "E_133": {
+      "data_type": "M",
+      "is_antecedent": false,
+      "values_en": {
+        "V_123": "No affected area specified.",
+        "V_14": "Affected area: the right iliac wing.",
+        "V_15": "Affected area: the left iliac wing.",
+        "V_16": "Affected area: the right groin.",
+        "V_17": "Affected area: the left groin.",
+        "V_18": "Affected area: the right armpit.",
+        "V_19": "Affected area: the left armpit.",
+        "V_20": "Affected area: the right tonsil.",
+        "V_21": "Affected area: the left tonsil.",
+        "V_22": "Affected area: the anus.",
+        "V_23": "Affected area: the back of the right ankle.",
+        "V_24": "Affected area: the back of the left ankle.",
+        "V_25": "Affected area: the back of the head.",
+        "V_26": "Affected area: the back of the neck.",
+        "V_27": "Affected area: the right forearm.",
+        "V_28": "Affected area: the left forearm.",
+        "V_29": "Affected area: the lower chest.",
+        "V_30": "Affected area: the right biceps.",
+        "V_31": "Affected area: the left biceps.",
+        "V_32": "Affected area: the mouth.",
+        "V_33": "Affected area: the thyroid cartilage.",
+        "V_34": "Affected area: the right ankle.",
+        "V_35": "Affected area: the left ankle.",
+        "V_36": "Affected area: the clitoris.",
+        "V_37": "Affected area: the coccyx.",
+        "V_38": "Affected area: the cervical spine.",
+        "V_39": "Affected area: the thoracic spine.",
+        "V_40": "Affected area: the lumbar spine.",
+        "V_41": "Affected area: the right corner of the mouth.",
+        "V_42": "Affected area: the left corner of the mouth.",
+        "V_43": "Affected area: the outer side of the right foot.",
+        "V_44": "Affected area: the outer side of the left foot.",
+        "V_45": "Affected area: the right elbow.",
+        "V_46": "Affected area: the left elbow.",
+        "V_47": "Affected area: the right popliteal fossa.",
+        "V_48": "Affected area: the left popliteal fossa.",
+        "V_49": "Affected area: the right iliac crest.",
+        "V_50": "Affected area: the left iliac crest.",
+        "V_51": "Affected area: the right thigh.",
+        "V_52": "Affected area: the left thigh.",
+        "V_53": "Affected area: the right side of the neck.",
+        "V_54": "Affected area: the left side of the neck.",
+        "V_55": "Affected area: the right side of the chest.",
+        "V_56": "Affected area: the left side of the chest.",
+        "V_57": "Affected area: the right lower teeth.",
+        "V_58": "Affected area: the left lower teeth.",
+        "V_59": "Affected area: the right upper teeth.",
+        "V_60": "Affected area: the left upper teeth.",
+        "V_61": "Affected area: the top of the tongue.",
+        "V_62": "Affected area: the top of the head.",
+        "V_63": "Affected area: the right ring finger.",
+        "V_64": "Affected area: the left ring finger.",
+        "V_65": "Affected area: the right little finger.",
+        "V_66": "Affected area: the left little finger.",
+        "V_67": "Affected area: the right index finger.",
+        "V_68": "Affected area: the left index finger.",
+        "V_69": "Affected area: the right middle finger.",
+        "V_70": "Affected area: the left middle finger.",
+        "V_72": "Affected area: the top of the right foot.",
+        "V_73": "Affected area: the top of the left foot.",
+        "V_74": "Affected area: the back of the right wrist.",
+        "V_75": "Affected area: the back of the left wrist.",
+        "V_76": "Affected area: the back of the right hand.",
+        "V_77": "Affected area: the back of the left hand.",
+        "V_78": "Affected area: the inner side of the right forearm.",
+        "V_79": "Affected area: the inner side of the left forearm.",
+        "V_80": "Affected area: the palm side of the right wrist.",
+        "V_81": "Affected area: the palm side of the left wrist.",
+        "V_82": "Affected area: the right buttock.",
+        "V_83": "Affected area: the left buttock.",
+        "V_84": "Affected area: the right flank.",
+        "V_85": "Affected area: the left flank.",
+        "V_87": "Affected area: the right iliac fossa.",
+        "V_88": "Affected area: the left iliac fossa.",
+        "V_89": "Affected area: the forehead.",
+        "V_90": "Affected area: the lower gum.",
+        "V_91": "Affected area: the upper gum.",
+        "V_92": "Affected area: the right knee.",
+        "V_93": "Affected area: the left knee.",
+        "V_94": "Affected area: the glans.",
+        "V_95": "Affected area: the right labia majora.",
+        "V_96": "Affected area: the left labia majora.",
+        "V_97": "Affected area: the right big toe.",
+        "V_98": "Affected area: the left big toe.",
+        "V_99": "Affected area: the right hip.",
+        "V_100": "Affected area: the left hip.",
+        "V_101": "Affected area: the upper chest.",
+        "V_102": "Affected area: the hymen.",
+        "V_103": "Affected area: the right upper abdomen.",
+        "V_104": "Affected area: the left upper abdomen.",
+        "V_105": "Affected area: the right hamstring.",
+        "V_106": "Affected area: the left hamstring.",
+        "V_108": "Affected area: the right cheek.",
+        "V_109": "Affected area: the left cheek.",
+        "V_110": "Affected area: the inside of the right cheek.",
+        "V_111": "Affected area: the inside of the left cheek.",
+        "V_113": "Affected area: the right renal fossa.",
+        "V_114": "Affected area: the left renal fossa.",
+        "V_115": "Affected area: the uvula.",
+        "V_116": "Affected area: the right side of the lower lip.",
+        "V_117": "Affected area: the right side of the upper lip.",
+        "V_118": "Affected area: the chin.",
+        "V_119": "Affected area: the right calf.",
+        "V_120": "Affected area: the left calf.",
+        "V_121": "Affected area: the jaw.",
+        "V_122": "Affected area: the nose.",
+        "V_124": "Affected area: the occiput.",
+        "V_125": "Affected area: the right eye.",
+        "V_126": "Affected area: the left eye.",
+        "V_127": "Affected area: the right scapula.",
+        "V_128": "Affected area: the left scapula.",
+        "V_129": "Affected area: the right ear.",
+        "V_130": "Affected area: the left ear.",
+        "V_131": "Affected area: the right second toe.",
+        "V_132": "Affected area: the left second toe.",
+        "V_133": "Affected area: the right third toe.",
+        "V_134": "Affected area: the left third toe.",
+        "V_135": "Affected area: the right fourth toe.",
+        "V_136": "Affected area: the left fourth toe.",
+        "V_137": "Affected area: the palate.",
+        "V_139": "Affected area: the vaginal wall.",
+        "V_140": "Affected area: the right vaginal wall.",
+        "V_141": "Affected area: the left vaginal wall.",
+        "V_142": "Affected area: the right palm.",
+        "V_143": "Affected area: the left palm.",
+        "V_144": "Affected area: the right little toe.",
+        "V_145": "Affected area: the left little toe.",
+        "V_146": "Affected area: the right labia minora.",
+        "V_147": "Affected area: the left labia minora.",
+        "V_148": "Affected area: the pharynx.",
+        "V_149": "Affected area: the sole of the right foot.",
+        "V_150": "Affected area: the sole of the left foot.",
+        "V_151": "Affected area: the right thumb.",
+        "V_152": "Affected area: the left thumb.",
+        "V_153": "Affected area: the pubis.",
+        "V_155": "Affected area: the penis.",
+        "V_158": "Affected area: the scrotum.",
+        "V_159": "Affected area: the right breast.",
+        "V_160": "Affected area: the left breast.",
+        "V_162": "Affected area: the area under the tongue.",
+        "V_163": "Affected area: the area under the jaw.",
+        "V_164": "Affected area: the right heel.",
+        "V_165": "Affected area: the left heel.",
+        "V_166": "Affected area: the right temple.",
+        "V_167": "Affected area: the left temple.",
+        "V_168": "Affected area: the right testicle.",
+        "V_169": "Affected area: the left testicle.",
+        "V_170": "Affected area: the right posterior chest wall.",
+        "V_171": "Affected area: the left posterior chest wall.",
+        "V_172": "Affected area: the right tibia.",
+        "V_173": "Affected area: the left tibia.",
+        "V_174": "Affected area: the trachea.",
+        "V_175": "Affected area: the right trapezius.",
+        "V_176": "Affected area: the left trapezius.",
+        "V_177": "Affected area: the right triceps.",
+        "V_178": "Affected area: the left triceps.",
+        "V_185": "Affected area: the urethra.",
+        "V_186": "Affected area: the vagina.",
+        "V_187": "Affected area: the abdomen.",
+        "V_188": "Affected area: the right vermilion.",
+        "V_189": "Affected area: the left vermilion.",
+        "V_190": "Affected area: the vulval vestibule.",
+        "V_194": "Affected area: the right shoulder.",
+        "V_195": "Affected area: the left shoulder.",
+        "V_197": "Affected area: the upper abdomen."
+      }
+    },
+    "E_129": {
+      "data_type": "B",
+      "is_antecedent": false,
+      "display_text_en": "Patient reports a skin lesion, redness, or another skin problem related to the reason for seeking care."
+    },
+    "E_130": {
+      "data_type": "C",
+      "is_antecedent": false,
+      "values_en": {
+        "V_11": "Rash color not specified.",
+        "V_86": "Rash color: dark-colored.",
+        "V_107": "Rash color: yellow.",
+        "V_138": "Rash color: pale.",
+        "V_156": "Rash color: pink.",
+        "V_157": "Rash color: red."
+      }
+    },
+    "E_134": {
+      "data_type": "C",
+      "is_antecedent": false,
+      "values_en": {
+        "0": "Patient-rated rash pain: 0/10.",
+        "1": "Patient-rated rash pain: 1/10.",
+        "2": "Patient-rated rash pain: 2/10.",
+        "3": "Patient-rated rash pain: 3/10.",
+        "4": "Patient-rated rash pain: 4/10.",
+        "5": "Patient-rated rash pain: 5/10.",
+        "6": "Patient-rated rash pain: 6/10.",
+        "7": "Patient-rated rash pain: 7/10.",
+        "8": "Patient-rated rash pain: 8/10.",
+        "9": "Patient-rated rash pain: 9/10.",
+        "10": "Patient-rated rash pain: 10/10."
+      }
+    },
+    "E_132": {
+      "data_type": "C",
+      "is_antecedent": false,
+      "values_en": {
+        "0": "Patient-rated rash swelling: 0/10.",
+        "1": "Patient-rated rash swelling: 1/10.",
+        "2": "Patient-rated rash swelling: 2/10.",
+        "3": "Patient-rated rash swelling: 3/10.",
+        "4": "Patient-rated rash swelling: 4/10.",
+        "5": "Patient-rated rash swelling: 5/10.",
+        "6": "Patient-rated rash swelling: 6/10.",
+        "7": "Patient-rated rash swelling: 7/10.",
+        "8": "Patient-rated rash swelling: 8/10.",
+        "9": "Patient-rated rash swelling: 9/10.",
+        "10": "Patient-rated rash swelling: 10/10."
+      }
+    },
+    "E_136": {
+      "data_type": "C",
+      "is_antecedent": false,
+      "values_en": {
+        "0": "Patient-rated pruritus severity: 0/10.",
+        "1": "Patient-rated pruritus severity: 1/10.",
+        "2": "Patient-rated pruritus severity: 2/10.",
+        "3": "Patient-rated pruritus severity: 3/10.",
+        "4": "Patient-rated pruritus severity: 4/10.",
+        "5": "Patient-rated pruritus severity: 5/10.",
+        "6": "Patient-rated pruritus severity: 6/10.",
+        "7": "Patient-rated pruritus severity: 7/10.",
+        "8": "Patient-rated pruritus severity: 8/10.",
+        "9": "Patient-rated pruritus severity: 9/10.",
+        "10": "Patient-rated pruritus severity: 10/10."
+      }
+    },
+    "E_135": {
+      "data_type": "C",
+      "is_antecedent": false,
+      "values_en": {
+        "V_10": "Skin lesion size: 1 cm or smaller.",
+        "V_12": "Skin lesion size: >1 cm."
+      }
+    },
+    "E_131": {
+      "data_type": "C",
+      "is_antecedent": false,
+      "values_en": {
+        "V_10": "Patient reports no peeling of skin lesions.",
+        "V_12": "Patient reports peeling of skin lesions."
+      }
+    },
+    "E_154": {
+      "data_type": "B",
+      "is_antecedent": false,
+      "display_text_en": "Patient reports markedly increased skin pallor."
+    },
+    "E_155": {
+      "data_type": "B",
+      "is_antecedent": false,
+      "display_text_en": "Patient reports palpitations described as fast, irregular, or skipped heartbeats."
+    },
+    "E_210": {
+      "data_type": "B",
+      "is_antecedent": false,
+      "display_text_en": "Patient reports recent hematemesis or vomit resembling coffee grounds."
+    },
+    "E_140": {
+      "data_type": "B",
+      "is_antecedent": false,
+      "display_text_en": "Patient reports recent black, tarry stools."
+    },
+    "E_51": {
+      "data_type": "B",
+      "is_antecedent": false,
+      "display_text_en": "Patient reports diarrhea or increased stool frequency."
+    },
+    "E_75": {
+      "data_type": "B",
+      "is_antecedent": false,
+      "display_text_en": "Patient reports a current or recent choking or suffocating sensation."
+    },
+    "E_89": {
+      "data_type": "B",
+      "is_antecedent": false,
+      "display_text_en": "Patient reports persistent fatigue or non-restorative sleep."
+    },
+    "E_114": {
+      "data_type": "B",
+      "is_antecedent": false,
+      "display_text_en": "Patient reports recent irritability or marked mood instability."
+    },
+    "E_82": {
+      "data_type": "B",
+      "is_antecedent": false,
+      "display_text_en": "Patient reports lightheadedness, dizziness, or near-syncope."
+    },
+    "E_148": {
+      "data_type": "B",
+      "is_antecedent": false,
+      "display_text_en": "Patient reports nausea or a sensation of impending vomiting."
+    },
+    "E_94": {
+      "data_type": "B",
+      "is_antecedent": false,
+      "display_text_en": "Patient reports chills or shivering."
+    },
+    "E_220": {
+      "data_type": "B",
+      "is_antecedent": false,
+      "display_text_en": "Patient reports pain worsening with deep inspiration."
+    },
+    "E_161": {
+      "data_type": "B",
+      "is_antecedent": false,
+      "display_text_en": "Patient reports recent loss of appetite or early satiety."
+    },
+    "E_179": {
+      "data_type": "B",
+      "is_antecedent": false,
+      "display_text_en": "Patient reports bright red blood or blood clots in the stool."
+    },
+    "E_162": {
+      "data_type": "B",
+      "is_antecedent": false,
+      "display_text_en": "Patient reports unintentional weight loss during the last three months."
+    },
+    "E_173": {
+      "data_type": "B",
+      "is_antecedent": false,
+      "display_text_en": "Patient reports a burning sensation rising from the stomach to the throat, sometimes with a bitter taste."
+    },
+    "E_33": {
+      "data_type": "B",
+      "is_antecedent": false,
+      "display_text_en": "Patient reports pain relief when leaning forward."
+    },
+    "E_218": {
+      "data_type": "B",
+      "is_antecedent": false,
+      "display_text_en": "Patient reports symptoms worsening with physical exertion and improving with rest."
+    },
+    "E_93": {
+      "data_type": "B",
+      "is_antecedent": false,
+      "display_text_en": "Patient reports numbness, reduced sensation, or tingling in the feet."
+    },
+    "E_66": {
+      "data_type": "B",
+      "is_antecedent": false,
+      "display_text_en": "Patient reports significant shortness of breath or difficulty breathing."
+    },
+    "E_163": {
+      "data_type": "B",
+      "is_antecedent": false,
+      "display_text_en": "Patient reports vaginal discharge."
+    },
+    "E_30": {
+      "data_type": "B",
+      "is_antecedent": false,
+      "display_text_en": "Patient reports abdominal bloating or distension."
+    },
+    "E_127": {
+      "data_type": "B",
+      "is_antecedent": false,
+      "display_text_en": "Patient reports excessive tearing."
+    },
+    "E_181": {
+      "data_type": "B",
+      "is_antecedent": false,
+      "display_text_en": "Patient reports nasal congestion or clear rhinorrhea."
+    },
+    "E_88": {
+      "data_type": "B",
+      "is_antecedent": false,
+      "display_text_en": "Patient reports fatigue severe enough to limit usual activities or remaining out of bed."
+    },
+    "E_43": {
+      "data_type": "B",
+      "is_antecedent": false,
+      "display_text_en": "Patient reports loss of consciousness with sustained muscle contractions or an absence episode."
+    },
+    "E_156": {
+      "data_type": "B",
+      "is_antecedent": false,
+      "display_text_en": "Patient reports current or resolved unilateral facial weakness or paralysis."
+    },
+    "E_144": {
+      "data_type": "B",
+      "is_antecedent": false,
+      "display_text_en": "Patient reports widespread myalgia."
+    },
+    "E_216": {
+      "data_type": "B",
+      "is_antecedent": false,
+      "display_text_en": "Patient reports pain worsening with movement."
+    },
+    "E_201": {
+      "data_type": "B",
+      "is_antecedent": false,
+      "display_text_en": "Patient reports cough."
+    },
+    "E_217": {
+      "data_type": "B",
+      "is_antecedent": false,
+      "display_text_en": "Patient reports symptoms worsening when supine and improving when sitting upright."
+    },
+    "E_215": {
+      "data_type": "B",
+      "is_antecedent": false,
+      "display_text_en": "Patient reports symptoms worsening after eating."
+    },
+    "E_64": {
+      "data_type": "B",
+      "is_antecedent": false,
+      "display_text_en": "Patient reports shortness of breath with minimal exertion."
+    },
+    "E_96": {
+      "data_type": "B",
+      "is_antecedent": false,
+      "display_text_en": "Patient reports recent weight gain."
+    },
+    "E_16": {
+      "data_type": "B",
+      "is_antecedent": true,
+      "display_text_en": "Patient reports anxiety."
+    },
+    "E_50": {
+      "data_type": "B",
+      "is_antecedent": false,
+      "display_text_en": "Patient reports markedly increased sweating."
+    },
+    "E_97": {
+      "data_type": "B",
+      "is_antecedent": false,
+      "display_text_en": "Patient reports sore throat."
+    },
+    "E_9": {
+      "data_type": "B",
+      "is_antecedent": false,
+      "display_text_en": "Patient reports swollen or painful lymph nodes."
+    },
+    "E_76": {
+      "data_type": "B",
+      "is_antecedent": false,
+      "display_text_en": "Patient reports mild dizziness or lightheadedness."
+    },
+    "E_102": {
+      "data_type": "B",
+      "is_antecedent": true,
+      "display_text_en": "Patient is seeking care because of high blood pressure."
+    },
+    "E_65": {
+      "data_type": "B",
+      "is_antecedent": false,
+      "display_text_en": "Patient reports dysphagia, discomfort, or a sensation of blockage when swallowing."
+    },
+    "E_74": {
+      "data_type": "B",
+      "is_antecedent": false,
+      "display_text_en": "Patient reports widespread redness in one or both eyes."
+    },
+    "E_205": {
+      "data_type": "B",
+      "is_antecedent": false,
+      "display_text_en": "Patient reports sudden difficulty opening the mouth or jaw pain on opening."
+    },
+    "E_63": {
+      "data_type": "B",
+      "is_antecedent": false,
+      "display_text_en": "Patient reports difficulty speaking or articulating words."
+    },
+    "E_128": {
+      "data_type": "B",
+      "is_antecedent": false,
+      "display_text_en": "Patient reports a brief episode of suffocation with inability to breathe or speak."
+    },
+    "E_190": {
+      "data_type": "B",
+      "is_antecedent": false,
+      "display_text_en": "Patient reports increased salivation."
+    },
+    "E_39": {
+      "data_type": "B",
+      "is_antecedent": false,
+      "display_text_en": "Patient reports recent confusion or disorientation."
+    },
+    "E_212": {
+      "data_type": "B",
+      "is_antecedent": false,
+      "display_text_en": "Patient reports a deeper, softer, or hoarse voice."
+    },
+    "E_206": {
+      "data_type": "B",
+      "is_antecedent": false,
+      "display_text_en": "Patient reports painful oral ulcers or sores."
+    },
+    "E_52": {
+      "data_type": "B",
+      "is_antecedent": false,
+      "display_text_en": "Patient reports diplopia."
+    },
+    "E_203": {
+      "data_type": "B",
+      "is_antecedent": false,
+      "display_text_en": "Patient reports intense coughing fits."
+    },
+    "E_38": {
+      "data_type": "B",
+      "is_antecedent": false,
+      "display_text_en": "Patient reports jaw pain or weakness."
+    },
+    "E_172": {
+      "data_type": "B",
+      "is_antecedent": false,
+      "display_text_en": "Patient reports difficulty opening or raising one or both eyelids."
+    },
+    "E_84": {
+      "data_type": "B",
+      "is_antecedent": false,
+      "display_text_en": "Patient reports weakness in both arms, both legs, or all four limbs."
+    },
+    "E_90": {
+      "data_type": "B",
+      "is_antecedent": false,
+      "display_text_en": "Patient reports muscle weakness worsening with fatigue or stress."
+    },
+    "E_211": {
+      "data_type": "B",
+      "is_antecedent": false,
+      "display_text_en": "Patient reports repeated vomiting or repeated attempts to vomit."
+    },
+    "E_166": {
+      "data_type": "B",
+      "is_antecedent": false,
+      "display_text_en": "Patient reports post-tussive vomiting."
+    },
+    "E_112": {
+      "data_type": "B",
+      "is_antecedent": false,
+      "display_text_en": "Patient reports inspiratory wheezing or noisy breathing after coughing fits."
+    },
+    "E_178": {
+      "data_type": "B",
+      "is_antecedent": false,
+      "display_text_en": "Patient reports unusual bleeding or bruising related to the reason for seeking care."
+    },
+    "E_152": {
+      "data_type": "M",
+      "is_antecedent": false,
+      "values_en": {
+        "V_123": "Patient reports no localized swelling.",
+        "V_14": "Patient reports swelling in the right iliac wing.",
+        "V_15": "Patient reports swelling in the left iliac wing.",
+        "V_16": "Patient reports swelling in the right groin.",
+        "V_17": "Patient reports swelling in the left groin.",
+        "V_18": "Patient reports swelling in the right armpit.",
+        "V_19": "Patient reports swelling in the left armpit.",
+        "V_20": "Patient reports swelling in the right tonsil.",
+        "V_21": "Patient reports swelling in the left tonsil.",
+        "V_22": "Patient reports swelling in the anus.",
+        "V_23": "Patient reports swelling in the back of the right ankle.",
+        "V_24": "Patient reports swelling in the back of the left ankle.",
+        "V_25": "Patient reports swelling in the back of the head.",
+        "V_26": "Patient reports swelling in the back of the neck.",
+        "V_27": "Patient reports swelling in the right forearm.",
+        "V_28": "Patient reports swelling in the left forearm.",
+        "V_29": "Patient reports swelling in the lower chest.",
+        "V_30": "Patient reports swelling in the right biceps.",
+        "V_31": "Patient reports swelling in the left biceps.",
+        "V_32": "Patient reports swelling in the mouth.",
+        "V_33": "Patient reports swelling in the thyroid cartilage.",
+        "V_34": "Patient reports swelling in the right ankle.",
+        "V_35": "Patient reports swelling in the left ankle.",
+        "V_36": "Patient reports swelling in the clitoris.",
+        "V_37": "Patient reports swelling in the coccyx.",
+        "V_38": "Patient reports swelling in the cervical spine.",
+        "V_39": "Patient reports swelling in the thoracic spine.",
+        "V_40": "Patient reports swelling in the lumbar spine.",
+        "V_41": "Patient reports swelling in the right corner of the mouth.",
+        "V_42": "Patient reports swelling in the left corner of the mouth.",
+        "V_43": "Patient reports swelling in the outer side of the right foot.",
+        "V_44": "Patient reports swelling in the outer side of the left foot.",
+        "V_45": "Patient reports swelling in the right elbow.",
+        "V_46": "Patient reports swelling in the left elbow.",
+        "V_47": "Patient reports swelling in the right popliteal fossa.",
+        "V_48": "Patient reports swelling in the left popliteal fossa.",
+        "V_49": "Patient reports swelling in the right iliac crest.",
+        "V_50": "Patient reports swelling in the left iliac crest.",
+        "V_51": "Patient reports swelling in the right thigh.",
+        "V_52": "Patient reports swelling in the left thigh.",
+        "V_53": "Patient reports swelling in the right side of the neck.",
+        "V_54": "Patient reports swelling in the left side of the neck.",
+        "V_55": "Patient reports swelling in the right side of the chest.",
+        "V_56": "Patient reports swelling in the left side of the chest.",
+        "V_57": "Patient reports swelling in the right lower teeth.",
+        "V_58": "Patient reports swelling in the left lower teeth.",
+        "V_59": "Patient reports swelling in the right upper teeth.",
+        "V_60": "Patient reports swelling in the left upper teeth.",
+        "V_61": "Patient reports swelling in the top of the tongue.",
+        "V_62": "Patient reports swelling in the top of the head.",
+        "V_63": "Patient reports swelling in the right ring finger.",
+        "V_64": "Patient reports swelling in the left ring finger.",
+        "V_65": "Patient reports swelling in the right little finger.",
+        "V_66": "Patient reports swelling in the left little finger.",
+        "V_67": "Patient reports swelling in the right index finger.",
+        "V_68": "Patient reports swelling in the left index finger.",
+        "V_69": "Patient reports swelling in the right middle finger.",
+        "V_70": "Patient reports swelling in the left middle finger.",
+        "V_72": "Patient reports swelling in the top of the right foot.",
+        "V_73": "Patient reports swelling in the top of the left foot.",
+        "V_74": "Patient reports swelling in the back of the right wrist.",
+        "V_75": "Patient reports swelling in the back of the left wrist.",
+        "V_76": "Patient reports swelling in the back of the right hand.",
+        "V_77": "Patient reports swelling in the back of the left hand.",
+        "V_78": "Patient reports swelling in the inner side of the right forearm.",
+        "V_79": "Patient reports swelling in the inner side of the left forearm.",
+        "V_80": "Patient reports swelling in the palm side of the right wrist.",
+        "V_81": "Patient reports swelling in the palm side of the left wrist.",
+        "V_82": "Patient reports swelling in the right buttock.",
+        "V_83": "Patient reports swelling in the left buttock.",
+        "V_84": "Patient reports swelling in the right flank.",
+        "V_85": "Patient reports swelling in the left flank.",
+        "V_87": "Patient reports swelling in the right iliac fossa.",
+        "V_88": "Patient reports swelling in the left iliac fossa.",
+        "V_89": "Patient reports swelling in the forehead.",
+        "V_90": "Patient reports swelling in the lower gum.",
+        "V_91": "Patient reports swelling in the upper gum.",
+        "V_92": "Patient reports swelling in the right knee.",
+        "V_93": "Patient reports swelling in the left knee.",
+        "V_94": "Patient reports swelling in the glans.",
+        "V_95": "Patient reports swelling in the right labia majora.",
+        "V_96": "Patient reports swelling in the left labia majora.",
+        "V_97": "Patient reports swelling in the right big toe.",
+        "V_98": "Patient reports swelling in the left big toe.",
+        "V_99": "Patient reports swelling in the right hip.",
+        "V_100": "Patient reports swelling in the left hip.",
+        "V_101": "Patient reports swelling in the upper chest.",
+        "V_102": "Patient reports swelling in the hymen.",
+        "V_103": "Patient reports swelling in the right upper abdomen.",
+        "V_104": "Patient reports swelling in the left upper abdomen.",
+        "V_105": "Patient reports swelling in the right hamstring.",
+        "V_106": "Patient reports swelling in the left hamstring.",
+        "V_108": "Patient reports swelling in the right cheek.",
+        "V_109": "Patient reports swelling in the left cheek.",
+        "V_110": "Patient reports swelling in the inside of the right cheek.",
+        "V_111": "Patient reports swelling in the inside of the left cheek.",
+        "V_113": "Patient reports swelling in the right renal fossa.",
+        "V_114": "Patient reports swelling in the left renal fossa.",
+        "V_115": "Patient reports swelling in the uvula.",
+        "V_116": "Patient reports swelling in the right side of the lower lip.",
+        "V_117": "Patient reports swelling in the right side of the upper lip.",
+        "V_118": "Patient reports swelling in the chin.",
+        "V_119": "Patient reports swelling in the right calf.",
+        "V_120": "Patient reports swelling in the left calf.",
+        "V_121": "Patient reports swelling in the jaw.",
+        "V_122": "Patient reports swelling in the nose.",
+        "V_124": "Patient reports swelling in the occiput.",
+        "V_125": "Patient reports swelling in the right eye.",
+        "V_126": "Patient reports swelling in the left eye.",
+        "V_127": "Patient reports swelling in the right scapula.",
+        "V_128": "Patient reports swelling in the left scapula.",
+        "V_129": "Patient reports swelling in the right ear.",
+        "V_130": "Patient reports swelling in the left ear.",
+        "V_131": "Patient reports swelling in the right second toe.",
+        "V_132": "Patient reports swelling in the left second toe.",
+        "V_133": "Patient reports swelling in the right third toe.",
+        "V_134": "Patient reports swelling in the left third toe.",
+        "V_135": "Patient reports swelling in the right fourth toe.",
+        "V_136": "Patient reports swelling in the left fourth toe.",
+        "V_137": "Patient reports swelling in the palate.",
+        "V_139": "Patient reports swelling in the vaginal wall.",
+        "V_140": "Patient reports swelling in the right vaginal wall.",
+        "V_141": "Patient reports swelling in the left vaginal wall.",
+        "V_142": "Patient reports swelling in the right palm.",
+        "V_143": "Patient reports swelling in the left palm.",
+        "V_144": "Patient reports swelling in the right little toe.",
+        "V_145": "Patient reports swelling in the left little toe.",
+        "V_146": "Patient reports swelling in the right labia minora.",
+        "V_147": "Patient reports swelling in the left labia minora.",
+        "V_148": "Patient reports swelling in the pharynx.",
+        "V_149": "Patient reports swelling in the sole of the right foot.",
+        "V_150": "Patient reports swelling in the sole of the left foot.",
+        "V_151": "Patient reports swelling in the right thumb.",
+        "V_152": "Patient reports swelling in the left thumb.",
+        "V_153": "Patient reports swelling in the pubis.",
+        "V_155": "Patient reports swelling in the penis.",
+        "V_158": "Patient reports swelling in the scrotum.",
+        "V_159": "Patient reports swelling in the right breast.",
+        "V_160": "Patient reports swelling in the left breast.",
+        "V_162": "Patient reports swelling in the area under the tongue.",
+        "V_163": "Patient reports swelling in the area under the jaw.",
+        "V_164": "Patient reports swelling in the right heel.",
+        "V_165": "Patient reports swelling in the left heel.",
+        "V_166": "Patient reports swelling in the right temple.",
+        "V_167": "Patient reports swelling in the left temple.",
+        "V_168": "Patient reports swelling in the right testicle.",
+        "V_169": "Patient reports swelling in the left testicle.",
+        "V_170": "Patient reports swelling in the right posterior chest wall.",
+        "V_171": "Patient reports swelling in the left posterior chest wall.",
+        "V_172": "Patient reports swelling in the right tibia.",
+        "V_173": "Patient reports swelling in the left tibia.",
+        "V_174": "Patient reports swelling in the trachea.",
+        "V_175": "Patient reports swelling in the right trapezius.",
+        "V_176": "Patient reports swelling in the left trapezius.",
+        "V_177": "Patient reports swelling in the right triceps.",
+        "V_178": "Patient reports swelling in the left triceps.",
+        "V_185": "Patient reports swelling in the urethra.",
+        "V_186": "Patient reports swelling in the vagina.",
+        "V_187": "Patient reports swelling in the abdomen.",
+        "V_188": "Patient reports swelling in the right vermilion.",
+        "V_189": "Patient reports swelling in the left vermilion.",
+        "V_190": "Patient reports swelling in the vulval vestibule.",
+        "V_194": "Patient reports swelling in the right shoulder.",
+        "V_195": "Patient reports swelling in the left shoulder.",
+        "V_197": "Patient reports swelling in the upper abdomen."
+      }
+    },
+    "E_151": {
+      "data_type": "B",
+      "is_antecedent": false,
+      "display_text_en": "Patient reports swelling in one or more body areas."
+    },
+    "E_45": {
+      "data_type": "B",
+      "is_antecedent": false,
+      "display_text_en": "Patient reports hemoptysis."
+    },
+    "E_194": {
+      "data_type": "B",
+      "is_antecedent": false,
+      "display_text_en": "Patient reports a high-pitched sound during inspiration."
+    },
+    "E_83": {
+      "data_type": "B",
+      "is_antecedent": false,
+      "display_text_en": "Patient reports weakness of the facial or ocular muscles."
+    },
+    "E_157": {
+      "data_type": "B",
+      "is_antecedent": false,
+      "display_text_en": "Patient reports recent numbness, reduced sensation, or tingling in both arms and legs and around the mouth."
+    },
+    "E_176": {
+      "data_type": "B",
+      "is_antecedent": false,
+      "display_text_en": "Patient reports current or previous weakness or paralysis affecting one or more limbs or the face."
+    },
+    "E_42": {
+      "data_type": "B",
+      "is_antecedent": false,
+      "display_text_en": "Patient reports exposure to or ingestion of a known allergen."
+    },
+    "E_214": {
+      "data_type": "B",
+      "is_antecedent": false,
+      "display_text_en": "Patient reports expiratory wheezing."
+    },
+    "E_150": {
+      "data_type": "B",
+      "is_antecedent": false,
+      "display_text_en": "Patient has been able to pass stool or gas since symptom worsening."
+    },
+    "E_32": {
+      "data_type": "B",
+      "is_antecedent": false,
+      "display_text_en": "Patient reports decreased appetite."
+    },
+    "E_221": {
+      "data_type": "B",
+      "is_antecedent": false,
+      "display_text_en": "Patient reports symptoms or pain worsening with coughing, lifting, or straining during defecation."
+    },
+    "E_202": {
+      "data_type": "B",
+      "is_antecedent": false,
+      "display_text_en": "Patient reports whooping cough."
+    },
+    "E_219": {
+      "data_type": "B",
+      "is_antecedent": false,
+      "display_text_en": "Patient reports symptoms that are more noticeable at night."
+    },
+    "E_196": {
+      "data_type": "B",
+      "is_antecedent": true,
+      "display_text_en": "Patient had surgery within the last month."
+    },
+    "E_170": {
+      "data_type": "B",
+      "is_antecedent": false,
+      "display_text_en": "Patient reports severe itching in one or both eyes."
+    },
+    "E_77": {
+      "data_type": "B",
+      "is_antecedent": false,
+      "display_text_en": "Patient reports colored sputum or increased sputum production with cough."
+    },
+    "E_13": {
+      "data_type": "B",
+      "is_antecedent": false,
+      "display_text_en": "Patient reports symptom progression over the last two weeks, with symptoms now occurring at progressively lower levels of exertion."
+    },
+    "E_14": {
+      "data_type": "B",
+      "is_antecedent": false,
+      "display_text_en": "Patient reports chest pain at rest."
+    },
+    "E_169": {
+      "data_type": "B",
+      "is_antecedent": false,
+      "display_text_en": "Patient reports itching of the nose or posterior throat."
+    },
+    "E_177": {
+      "data_type": "B",
+      "is_antecedent": false,
+      "display_text_en": "Patient reports current or previous numbness, reduced sensation, or tingling in a body area."
+    },
+    "E_175": {
+      "data_type": "B",
+      "is_antecedent": false,
+      "display_text_en": "Patient reports new fatigue, malaise, widespread myalgia, or a change in general well-being."
+    },
+    "E_174": {
+      "data_type": "B",
+      "is_antecedent": false,
+      "display_text_en": "Patient reports unintentional weight loss or loss of appetite."
+    },
+    "E_145": {
+      "data_type": "B",
+      "is_antecedent": false,
+      "display_text_en": "Patient reports very heavy or unusually prolonged menstrual periods."
+    },
+    "E_92": {
+      "data_type": "B",
+      "is_antecedent": false,
+      "display_text_en": "Patient reports sudden facial flushing of the cheeks."
+    },
+    "E_192": {
+      "data_type": "B",
+      "is_antecedent": false,
+      "display_text_en": "Patient reports neck muscle spasms or soreness preventing head rotation to one side."
+    },
+    "E_188": {
+      "data_type": "B",
+      "is_antecedent": false,
+      "display_text_en": "Patient reports pale stools and dark urine."
+    },
+    "E_164": {
+      "data_type": "B",
+      "is_antecedent": false,
+      "display_text_en": "Patient reports a markedly irregular or disorganized heartbeat."
+    },
+    "E_193": {
+      "data_type": "B",
+      "is_antecedent": false,
+      "display_text_en": "Patient reports bothersome muscle spasms affecting the face, neck, or another body area."
+    },
+    "E_168": {
+      "data_type": "B",
+      "is_antecedent": false,
+      "display_text_en": "Patient reports difficulty keeping the tongue inside the mouth."
+    },
+    "E_180": {
+      "data_type": "B",
+      "is_antecedent": false,
+      "display_text_en": "Patient reports inability to control eye direction."
+    },
+    "E_67": {
+      "data_type": "B",
+      "is_antecedent": false,
+      "display_text_en": "Patient reports nocturnal episodes of choking or shortness of breath."
+    },
+    "E_78": {
+      "data_type": "B",
+      "is_antecedent": true,
+      "display_text_en": "Patient drinks alcohol excessively or has alcohol dependence."
+    },
+    "E_146": {
+      "data_type": "B",
+      "is_antecedent": true,
+      "display_text_en": "Patient is taking a non-vitamin K oral anticoagulant (NOAC)."
+    },
+    "E_171": {
+      "data_type": "B",
+      "is_antecedent": false,
+      "display_text_en": "Patient reports feeling detached from the body or surroundings."
+    },
+    "E_111": {
+      "data_type": "B",
+      "is_antecedent": false,
+      "display_text_en": "Patient reports a feeling of impending death or fear of dying."
+    },
+    "E_182": {
+      "data_type": "B",
+      "is_antecedent": false,
+      "display_text_en": "Patient reports green or yellow nasal discharge."
+    },
+    "E_103": {
+      "data_type": "B",
+      "is_antecedent": false,
+      "display_text_en": "Patient reports loss of smell."
+    },
+    "E_23": {
+      "data_type": "B",
+      "is_antecedent": false,
+      "display_text_en": "Patient reports episodes of temporary breathing cessation during sleep."
+    },
+    "E_105": {
+      "data_type": "B",
+      "is_antecedent": true,
+      "display_text_en": "Patient has a history of myocardial infarction or angina."
+    },
+    "E_108": {
+      "data_type": "B",
+      "is_antecedent": true,
+      "display_text_en": "Patient has poor circulation."
+    },
+    "E_104": {
+      "data_type": "B",
+      "is_antecedent": true,
+      "display_text_en": "Patient has hypertension or takes antihypertensive medication."
+    },
+    "E_79": {
+      "data_type": "B",
+      "is_antecedent": true,
+      "display_text_en": "Patient smokes cigarettes."
+    },
+    "E_71": {
+      "data_type": "B",
+      "is_antecedent": true,
+      "display_text_en": "Patient has hypercholesterolemia or takes lipid-lowering medication."
+    },
+    "E_41": {
+      "data_type": "B",
+      "is_antecedent": true,
+      "display_text_en": "Patient was in contact with someone who had similar symptoms during the last two weeks."
+    },
+    "E_100": {
+      "data_type": "B",
+      "is_antecedent": true,
+      "display_text_en": "Patient currently takes hormones."
+    },
+    "E_69": {
+      "data_type": "B",
+      "is_antecedent": true,
+      "display_text_en": "Patient has diabetes."
+    },
+    "E_167": {
+      "data_type": "B",
+      "is_antecedent": true,
+      "display_text_en": "Patient is pregnant or suspects pregnancy."
+    },
+    "E_115": {
+      "data_type": "B",
+      "is_antecedent": true,
+      "display_text_en": "Patient had unprotected sex with more than one partner during the last six months."
+    },
+    "E_70": {
+      "data_type": "B",
+      "is_antecedent": true,
+      "display_text_en": "Patient is significantly overweight relative to others of the same height."
+    },
+    "E_10": {
+      "data_type": "B",
+      "is_antecedent": true,
+      "display_text_en": "Patient currently takes, or recently took, nonsteroidal anti-inflammatory drugs (NSAIDs)."
+    },
+    "E_165": {
+      "data_type": "B",
+      "is_antecedent": true,
+      "display_text_en": "A member of the patient's family has had a pneumothorax."
+    },
+    "E_8": {
+      "data_type": "B",
+      "is_antecedent": true,
+      "display_text_en": "Patient currently receives dialysis."
+    },
+    "E_25": {
+      "data_type": "B",
+      "is_antecedent": true,
+      "display_text_en": "A member of the patient's family has been diagnosed with cluster headaches."
+    },
+    "E_184": {
+      "data_type": "B",
+      "is_antecedent": true,
+      "display_text_en": "Patient takes medication that dilates blood vessels."
+    },
+    "E_185": {
+      "data_type": "B",
+      "is_antecedent": true,
+      "display_text_en": "Patient has had a head injury."
+    },
+    "E_99": {
+      "data_type": "B",
+      "is_antecedent": true,
+      "display_text_en": "Patient has a personal or family history of migraine."
+    },
+    "E_107": {
+      "data_type": "B",
+      "is_antecedent": true,
+      "display_text_en": "Patient has had a stroke."
+    },
+    "E_226": {
+      "data_type": "B",
+      "is_antecedent": true,
+      "display_text_en": "Patient is more prone to common allergies than the general population."
+    },
+    "E_62": {
+      "data_type": "B",
+      "is_antecedent": true,
+      "display_text_en": "Patient regularly takes stimulant drugs."
+    },
+    "E_49": {
+      "data_type": "B",
+      "is_antecedent": true,
+      "display_text_en": "Patient attends or works in a daycare facility."
+    },
+    "E_95": {
+      "data_type": "B",
+      "is_antecedent": true,
+      "display_text_en": "Patient has Parkinson's disease."
+    },
+    "E_204": {
+      "data_type": "C",
+      "is_antecedent": true,
+      "values_en": {
+        "V_10": "Patient reports no international travel during the last four weeks.",
+        "V_0": "Patient reports travel to North Africa during the last four weeks.",
+        "V_1": "Patient reports travel to West Africa during the last four weeks.",
+        "V_2": "Patient reports travel to Southern Africa during the last four weeks.",
+        "V_3": "Patient reports travel to Central America during the last four weeks.",
+        "V_4": "Patient reports travel to North America during the last four weeks.",
+        "V_5": "Patient reports travel to South America during the last four weeks.",
+        "V_6": "Patient reports travel to Asia during the last four weeks.",
+        "V_7": "Patient reports travel to Southeast Asia during the last four weeks.",
+        "V_8": "Patient reports travel to the Caribbean during the last four weeks.",
+        "V_9": "Patient reports travel to Europe during the last four weeks.",
+        "V_13": "Patient reports travel to Oceania during the last four weeks."
+      }
+    },
+    "E_37": {
+      "data_type": "B",
+      "is_antecedent": true,
+      "display_text_en": "Patient has metastatic cancer."
+    },
+    "E_153": {
+      "data_type": "B",
+      "is_antecedent": true,
+      "display_text_en": "Patient is being treated for osteoporosis."
+    },
+    "E_124": {
+      "data_type": "B",
+      "is_antecedent": true,
+      "display_text_en": "Patient has asthma or a history of bronchodilator use."
+    },
+    "E_98": {
+      "data_type": "B",
+      "is_antecedent": true,
+      "display_text_en": "Patient has a hiatal hernia."
+    },
+    "E_116": {
+      "data_type": "B",
+      "is_antecedent": true,
+      "display_text_en": "Patient had a cold during the last two weeks."
+    },
+    "E_48": {
+      "data_type": "B",
+      "is_antecedent": true,
+      "display_text_en": "Patient lives with four or more people."
+    },
+    "E_2": {
+      "data_type": "B",
+      "is_antecedent": true,
+      "display_text_en": "Patient has human immunodeficiency virus (HIV)."
+    },
+    "E_227": {
+      "data_type": "B",
+      "is_antecedent": true,
+      "display_text_en": "Patient is immunosuppressed."
+    },
+    "E_61": {
+      "data_type": "B",
+      "is_antecedent": true,
+      "display_text_en": "Patient currently uses intravenous drugs."
+    },
+    "E_47": {
+      "data_type": "B",
+      "is_antecedent": true,
+      "display_text_en": "Patient has Crohn's disease or ulcerative colitis."
+    },
+    "E_27": {
+      "data_type": "B",
+      "is_antecedent": true,
+      "display_text_en": "Patient has had a sexually transmitted infection."
+    },
+    "E_143": {
+      "data_type": "B",
+      "is_antecedent": true,
+      "display_text_en": "Patient exercises at least four times per week."
+    },
+    "E_191": {
+      "data_type": "B",
+      "is_antecedent": true,
+      "display_text_en": "Patient is a former smoker."
+    },
+    "E_208": {
+      "data_type": "B",
+      "is_antecedent": true,
+      "display_text_en": "Patient has a BMI below 18.5 or is underweight."
+    },
+    "E_126": {
+      "data_type": "B",
+      "is_antecedent": true,
+      "display_text_en": "Patient has liver cirrhosis."
+    },
+    "E_189": {
+      "data_type": "B",
+      "is_antecedent": true,
+      "display_text_en": "Patient had sexual intercourse with an HIV-positive partner during the last 12 months."
+    },
+    "E_7": {
+      "data_type": "B",
+      "is_antecedent": true,
+      "display_text_en": "Patient has a poor diet."
+    },
+    "E_24": {
+      "data_type": "B",
+      "is_antecedent": true,
+      "display_text_en": "Patient has been diagnosed with anemia."
+    },
+    "E_26": {
+      "data_type": "B",
+      "is_antecedent": true,
+      "display_text_en": "A member of the patient's family has been diagnosed with anemia."
+    },
+    "E_113": {
+      "data_type": "B",
+      "is_antecedent": true,
+      "display_text_en": "Patient has chronic kidney failure."
+    },
+    "E_160": {
+      "data_type": "B",
+      "is_antecedent": true,
+      "display_text_en": "Patient was born prematurely or had a perinatal complication."
+    },
+    "E_28": {
+      "data_type": "B",
+      "is_antecedent": true,
+      "display_text_en": "A member of the patient's family has been diagnosed with myasthenia gravis."
+    },
+    "E_20": {
+      "data_type": "B",
+      "is_antecedent": true,
+      "display_text_en": "Patient has rheumatoid arthritis."
+    },
+    "E_80": {
+      "data_type": "B",
+      "is_antecedent": true,
+      "display_text_en": "Patient has been diagnosed with depression."
+    },
+    "E_40": {
+      "data_type": "B",
+      "is_antecedent": true,
+      "display_text_en": "Patient was in contact with someone who had pertussis (whooping cough)."
+    },
+    "E_0": {
+      "data_type": "B",
+      "is_antecedent": true,
+      "display_text_en": "Patient recently had a viral infection."
+    },
+    "E_1": {
+      "data_type": "B",
+      "is_antecedent": true,
+      "display_text_en": "Patient is currently taking, or recently took, an oral antibiotic for an ear infection."
+    },
+    "E_34": {
+      "data_type": "B",
+      "is_antecedent": true,
+      "display_text_en": "Patient has active cancer."
+    },
+    "E_209": {
+      "data_type": "B",
+      "is_antecedent": true,
+      "display_text_en": "Patient's vaccinations are up to date."
+    },
+    "E_139": {
+      "data_type": "B",
+      "is_antecedent": true,
+      "display_text_en": "Patient has a known heart defect."
+    },
+    "E_19": {
+      "data_type": "B",
+      "is_antecedent": true,
+      "display_text_en": "Patient has been diagnosed with hyperthyroidism."
+    },
+    "E_31": {
+      "data_type": "B",
+      "is_antecedent": true,
+      "display_text_en": "Patient has severe chronic obstructive pulmonary disease (COPD)."
+    },
+    "E_22": {
+      "data_type": "B",
+      "is_antecedent": true,
+      "display_text_en": "Patient has a known heart valve problem."
+    },
+    "E_60": {
+      "data_type": "B",
+      "is_antecedent": true,
+      "display_text_en": "Patient regularly consumes energy drinks."
+    },
+    "E_35": {
+      "data_type": "B",
+      "is_antecedent": true,
+      "display_text_en": "Patient regularly drinks coffee or tea."
+    },
+    "E_213": {
+      "data_type": "B",
+      "is_antecedent": true,
+      "display_text_en": "Patient recently took decongestants or another substance with stimulant effects."
+    },
+    "E_12": {
+      "data_type": "B",
+      "is_antecedent": true,
+      "display_text_en": "Patient has a known severe food allergy."
+    },
+    "E_44": {
+      "data_type": "B",
+      "is_antecedent": true,
+      "display_text_en": "Patient takes corticosteroids."
+    },
+    "E_4": {
+      "data_type": "B",
+      "is_antecedent": true,
+      "display_text_en": "Patient has a personal or family history of croup."
+    },
+    "E_81": {
+      "data_type": "B",
+      "is_antecedent": true,
+      "display_text_en": "Patient has chronic anxiety."
+    },
+    "E_109": {
+      "data_type": "B",
+      "is_antecedent": true,
+      "display_text_en": "Patient has had deep vein thrombosis (DVT)."
+    },
+    "E_110": {
+      "data_type": "B",
+      "is_antecedent": true,
+      "display_text_en": "Patient was unable to move or get up for more than three consecutive days during the last four weeks."
+    },
+    "E_17": {
+      "data_type": "B",
+      "is_antecedent": true,
+      "display_text_en": "Patient is of Asian descent."
+    },
+    "E_18": {
+      "data_type": "B",
+      "is_antecedent": true,
+      "display_text_en": "Patient has cystic fibrosis."
+    },
+    "E_118": {
+      "data_type": "B",
+      "is_antecedent": true,
+      "display_text_en": "Patient has had pneumonia."
+    },
+    "E_123": {
+      "data_type": "B",
+      "is_antecedent": true,
+      "display_text_en": "Patient has chronic obstructive pulmonary disease (COPD)."
+    },
+    "E_207": {
+      "data_type": "B",
+      "is_antecedent": true,
+      "display_text_en": "Patient lives in a large city."
+    },
+    "E_86": {
+      "data_type": "B",
+      "is_antecedent": true,
+      "display_text_en": "A close member of the patient's family has allergies, hay fever, or eczema."
+    },
+    "E_87": {
+      "data_type": "B",
+      "is_antecedent": true,
+      "display_text_en": "A member of the patient's family has asthma."
+    },
+    "E_141": {
+      "data_type": "B",
+      "is_antecedent": true,
+      "display_text_en": "Patient experienced menarche before 12 years of age."
+    },
+    "E_11": {
+      "data_type": "B",
+      "is_antecedent": true,
+      "display_text_en": "Patient breastfed one of their children for more than nine months."
+    },
+    "E_186": {
+      "data_type": "B",
+      "is_antecedent": true,
+      "display_text_en": "Patient has been diagnosed with obstructive sleep apnea (OSA)."
+    },
+    "E_106": {
+      "data_type": "B",
+      "is_antecedent": true,
+      "display_text_en": "Patient has heart failure."
+    },
+    "E_158": {
+      "data_type": "B",
+      "is_antecedent": true,
+      "display_text_en": "Patient has been diagnosed with an endocrine disease or hormonal disorder."
+    },
+    "E_187": {
+      "data_type": "B",
+      "is_antecedent": true,
+      "display_text_en": "Patient ate dark-fleshed fish, such as tuna, or Swiss cheese before the reaction."
+    },
+    "E_6": {
+      "data_type": "B",
+      "is_antecedent": true,
+      "display_text_en": "Patient has chronic pancreatitis."
+    },
+    "E_125": {
+      "data_type": "B",
+      "is_antecedent": true,
+      "display_text_en": "Patient has been diagnosed with gastroesophageal reflux."
+    },
+    "E_21": {
+      "data_type": "B",
+      "is_antecedent": true,
+      "display_text_en": "Patient has had a spontaneous pneumothorax."
+    },
+    "E_222": {
+      "data_type": "B",
+      "is_antecedent": true,
+      "display_text_en": "Patient is exposed to secondhand cigarette smoke every day."
+    },
+    "E_15": {
+      "data_type": "B",
+      "is_antecedent": true,
+      "display_text_en": "Patient started or took an antipsychotic medication during the last seven days."
+    },
+    "E_147": {
+      "data_type": "B",
+      "is_antecedent": true,
+      "display_text_en": "Patient was recently treated in hospital for nausea, agitation, intoxication, or aggressive behavior and received intravenous or intramuscular medication."
+    },
+    "E_137": {
+      "data_type": "B",
+      "is_antecedent": true,
+      "display_text_en": "Patient has had surgery to remove lymph nodes."
+    },
+    "E_149": {
+      "data_type": "B",
+      "is_antecedent": true,
+      "display_text_en": "Patient takes a calcium channel blocker."
+    },
+    "E_197": {
+      "data_type": "B",
+      "is_antecedent": true,
+      "display_text_en": "Patient has a protein-losing kidney disorder."
+    },
+    "E_3": {
+      "data_type": "B",
+      "is_antecedent": true,
+      "display_text_en": "Patient has had pericarditis."
+    },
+    "E_29": {
+      "data_type": "B",
+      "is_antecedent": true,
+      "display_text_en": "A member of the patient's immediate family has a psychiatric illness."
+    },
+    "E_225": {
+      "data_type": "B",
+      "is_antecedent": true,
+      "display_text_en": "Patient has a close family history of cardiovascular disease before 50 years of age."
+    },
+    "E_73": {
+      "data_type": "B",
+      "is_antecedent": true,
+      "display_text_en": "Patient was in contact with someone infected with Ebola virus during the last month."
+    },
+    "E_138": {
+      "data_type": "B",
+      "is_antecedent": true,
+      "display_text_en": "Patient has fibromyalgia."
+    },
+    "E_101": {
+      "data_type": "B",
+      "is_antecedent": true,
+      "display_text_en": "Patient was hospitalized for an asthma attack during the past year."
+    },
+    "E_46": {
+      "data_type": "B",
+      "is_antecedent": true,
+      "display_text_en": "Patient had at least two asthma attacks during the past year."
+    },
+    "E_119": {
+      "data_type": "B",
+      "is_antecedent": true,
+      "display_text_en": "Patient has been diagnosed with chronic sinusitis."
+    },
+    "E_72": {
+      "data_type": "B",
+      "is_antecedent": true,
+      "display_text_en": "Patient had one or more COPD flare-ups during the past year."
+    },
+    "E_198": {
+      "data_type": "B",
+      "is_antecedent": true,
+      "display_text_en": "Patient works in agriculture."
+    },
+    "E_200": {
+      "data_type": "B",
+      "is_antecedent": true,
+      "display_text_en": "Patient works in the mining sector."
+    },
+    "E_199": {
+      "data_type": "B",
+      "is_antecedent": true,
+      "display_text_en": "Patient works in construction."
+    },
+    "E_121": {
+      "data_type": "B",
+      "is_antecedent": true,
+      "display_text_en": "Patient has a deviated nasal septum."
+    },
+    "E_120": {
+      "data_type": "B",
+      "is_antecedent": true,
+      "display_text_en": "Patient has nasal polyps."
+    },
+    "E_142": {
+      "data_type": "B",
+      "is_antecedent": true,
+      "display_text_en": "Patient has a maternal history of asthma."
+    },
+    "E_195": {
+      "data_type": "B",
+      "is_antecedent": true,
+      "display_text_en": "Patient lives in the suburbs."
+    },
+    "E_183": {
+      "data_type": "B",
+      "is_antecedent": true,
+      "display_text_en": "Patient lives in a rural area."
+    },
+    "E_224": {
+      "data_type": "B",
+      "is_antecedent": true,
+      "display_text_en": "A member of the patient's family has had lung cancer."
+    },
+    "E_223": {
+      "data_type": "B",
+      "is_antecedent": true,
+      "display_text_en": "A member of the patient's family has been diagnosed with pancreatic cancer."
+    },
+    "E_5": {
+      "data_type": "B",
+      "is_antecedent": true,
+      "display_text_en": "Patient has had fluid in their lungs."
+    }
+  }
+}

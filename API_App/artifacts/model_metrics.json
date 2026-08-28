@@ -1,0 +1,329 @@
+{
+  "schema_version": 1,
+  "generated_at_utc": "2026-08-06T07:35:02.332064+00:00",
+  "dataset": {
+    "name": "DDXPlus English v2",
+    "kaggle_ref": "deveddu17xx/ddxplus-english-v2",
+    "quick_mode": false,
+    "train_rows": 1025602,
+    "test_rows": 134529,
+    "n_classes": 49
+  },
+  "problem": {
+    "task": "single-label multiclass classification",
+    "target": "PATHOLOGY",
+    "runtime_features": [
+      "AGE",
+      "SEX",
+      "EVIDENCES",
+      "INITIAL_EVIDENCE"
+    ],
+    "forbidden_leakage_features": [
+      "DIFFERENTIAL_DIAGNOSIS",
+      "DIFFERENTIAL_DIGNOSIS",
+      "PATHOLOGY"
+    ],
+    "selection_metric": "macro_f1"
+  },
+  "selection": {
+    "selected_model": "XGBoost weighted",
+    "deployed_variant": "raw",
+    "model_metadata": {
+      "family": "Gradient Boosted Trees",
+      "fit_seconds": 107.248774766922,
+      "training_rows": 1025602,
+      "deployment_candidate": true,
+      "api_class_order_compatible": true,
+      "runtime_dependencies": [
+        "xgboost"
+      ],
+      "details": {
+        "parameters": {
+          "objective": "multi:softprob",
+          "num_class": 49,
+          "n_estimators": 600,
+          "learning_rate": 0.06,
+          "max_depth": 7,
+          "min_child_weight": 2.0,
+          "subsample": 0.85,
+          "colsample_bytree": 0.8,
+          "reg_alpha": 0.05,
+          "reg_lambda": 1.5,
+          "gamma": 0.0,
+          "max_bin": 256,
+          "tree_method": "hist",
+          "eval_metric": "mlogloss",
+          "early_stopping_rounds": 35,
+          "random_state": 42,
+          "n_jobs": -1,
+          "device": "cuda"
+        },
+        "best_iteration": 251,
+        "gpu_requested": true
+      }
+    },
+    "validation_results": [
+      {
+        "model": "XGBoost weighted",
+        "family": "Gradient Boosted Trees",
+        "fit_seconds": 107.248774766922,
+        "training_rows": 1025602,
+        "deployment_candidate": true,
+        "accuracy": 0.9973272529596521,
+        "balanced_accuracy": 0.9963255337210333,
+        "macro_precision": 0.9973771373332834,
+        "macro_recall_sensitivity": 0.9963255337210333,
+        "macro_specificity": 0.9999443181766304,
+        "macro_f1": 0.9967038725045149,
+        "weighted_f1": 0.9972959351895092,
+        "top_3_accuracy": 1.0,
+        "top_5_accuracy": 1.0,
+        "log_loss": 0.007988999181026246,
+        "multiclass_brier": 0.004495881307833797,
+        "top_label_ece": 0.0005021501520631992
+      },
+      {
+        "model": "FLAML AutoML",
+        "family": "AutoML",
+        "fit_seconds": 813.3185720443726,
+        "training_rows": 200000,
+        "deployment_candidate": true,
+        "accuracy": 0.9968289441894177,
+        "balanced_accuracy": 0.9954488654314719,
+        "macro_precision": 0.9969057943086163,
+        "macro_recall_sensitivity": 0.9954488654314719,
+        "macro_specificity": 0.9999338226484387,
+        "macro_f1": 0.9959841686100698,
+        "weighted_f1": 0.9967862757810049,
+        "top_3_accuracy": 1.0,
+        "top_5_accuracy": 1.0,
+        "log_loss": 0.00959657049922507,
+        "multiclass_brier": 0.005196926675258535,
+        "top_label_ece": 0.0008972224354829513
+      },
+      {
+        "model": "SGD log-loss",
+        "family": "Baseline lineare",
+        "fit_seconds": 74.88169479370117,
+        "training_rows": 1025602,
+        "deployment_candidate": true,
+        "accuracy": 0.9910153418700169,
+        "balanced_accuracy": 0.9891571873452975,
+        "macro_precision": 0.9844069428905453,
+        "macro_recall_sensitivity": 0.9891571873452975,
+        "macro_specificity": 0.9998134054526516,
+        "macro_f1": 0.9861915217574282,
+        "weighted_f1": 0.9908849970270118,
+        "top_3_accuracy": 0.9971611500362406,
+        "top_5_accuracy": 0.9983540710316502,
+        "log_loss": 0.23091874245392016,
+        "multiclass_brier": 0.07209936082271205,
+        "top_label_ece": 0.15700941277653477
+      },
+      {
+        "model": "Dummy prior",
+        "family": "Baseline minima",
+        "fit_seconds": 0.05887746810913086,
+        "training_rows": 1025602,
+        "deployment_candidate": false,
+        "accuracy": 0.06535395022952405,
+        "balanced_accuracy": 0.02040816326530612,
+        "macro_precision": 0.0013337540863168173,
+        "macro_recall_sensitivity": 0.02040816326530612,
+        "macro_specificity": 0.9795918367346939,
+        "macro_f1": 0.0025038703541287247,
+        "weighted_f1": 0.00801825310674056,
+        "top_3_accuracy": 0.1797233631311911,
+        "top_5_accuracy": 0.23669666586131916,
+        "log_loss": 3.7164332801572937,
+        "multiclass_brier": 0.9720116534063166,
+        "top_label_ece": 0.0025927621663182077
+      }
+    ]
+  },
+  "calibration": {
+    "strategy": "sigmoid with FrozenEstimator",
+    "fit_seconds": 7.611013889312744,
+    "comparison": [
+      {
+        "variant": "raw",
+        "accuracy": 0.9973121526938874,
+        "balanced_accuracy": 0.9966535503526327,
+        "macro_precision": 0.9974313151931508,
+        "macro_recall_sensitivity": 0.9966535503526327,
+        "macro_specificity": 0.9999439592578899,
+        "macro_f1": 0.9969200546391416,
+        "weighted_f1": 0.9972887327881604,
+        "top_3_accuracy": 1.0,
+        "top_5_accuracy": 1.0,
+        "log_loss": 0.008411502115900152,
+        "multiclass_brier": 0.004449251025852822,
+        "top_label_ece": 0.0008355059903309188
+      },
+      {
+        "variant": "calibrated",
+        "accuracy": 0.9970705484416525,
+        "balanced_accuracy": 0.996543029718047,
+        "macro_precision": 0.9967816792595193,
+        "macro_recall_sensitivity": 0.996543029718047,
+        "macro_specificity": 0.9999390104338733,
+        "macro_f1": 0.9966320964646891,
+        "weighted_f1": 0.9970601380601153,
+        "top_3_accuracy": 0.9999697994684706,
+        "top_5_accuracy": 0.9999697994684706,
+        "log_loss": 0.014123225301473877,
+        "multiclass_brier": 0.0049055518239526944,
+        "top_label_ece": 0.002076260747733378
+      }
+    ]
+  },
+  "test_metrics": {
+    "accuracy": 0.9976138973752872,
+    "balanced_accuracy": 0.9968192141414864,
+    "macro_precision": 0.9976750558266634,
+    "macro_recall_sensitivity": 0.9968192141414864,
+    "macro_specificity": 0.9999502740435187,
+    "macro_f1": 0.997131391557756,
+    "weighted_f1": 0.9975893446155739,
+    "top_3_accuracy": 1.0,
+    "top_5_accuracy": 1.0,
+    "log_loss": 0.0075999110025417645,
+    "multiclass_brier": 0.004140010083948029,
+    "top_label_ece": 0.0008526194975886633
+  },
+  "test_inference_seconds": 5.356525659561157,
+  "severity_metrics": [
+    {
+      "severity": 1,
+      "n_pathologies": 5,
+      "mean_recall": 1.0,
+      "mean_f1": 1.0
+    },
+    {
+      "severity": 2,
+      "n_pathologies": 12,
+      "mean_recall": 0.9986868454508278,
+      "mean_f1": 0.9985489850046477
+    },
+    {
+      "severity": 3,
+      "n_pathologies": 17,
+      "mean_recall": 1.0,
+      "mean_f1": 1.0
+    },
+    {
+      "severity": 4,
+      "n_pathologies": 12,
+      "mean_recall": 0.9887496513665027,
+      "mean_f1": 0.9934379967233223
+    },
+    {
+      "severity": 5,
+      "n_pathologies": 3,
+      "mean_recall": 0.9983011770416211,
+      "mean_f1": 0.9851981351981353
+    }
+  ],
+  "lowest_recall_classes": [
+    {
+      "diagnosis": "Acute rhinosinusitis",
+      "severity": 4,
+      "support": 1829,
+      "precision": 0.9912663755458515,
+      "recall_sensitivity": 0.8687807545106616,
+      "specificity": 0.9998944988696308,
+      "f1": 0.925990675990676
+    },
+    {
+      "diagnosis": "Unstable angina",
+      "severity": 2,
+      "support": 2880,
+      "precision": 1.0,
+      "recall_sensitivity": 0.9847222222222223,
+      "specificity": 1.0,
+      "f1": 0.9923023093072079
+    },
+    {
+      "diagnosis": "Chronic rhinosinusitis",
+      "severity": 5,
+      "support": 2747,
+      "precision": 0.9192734611503531,
+      "recall_sensitivity": 0.9949035311248635,
+      "specificity": 0.9981788104596986,
+      "f1": 0.9555944055944056
+    },
+    {
+      "diagnosis": "Viral pharyngitis",
+      "severity": 4,
+      "support": 8334,
+      "precision": 0.9992791926958193,
+      "recall_sensitivity": 0.998080153587713,
+      "specificity": 0.9999524545346488,
+      "f1": 0.9986793132428863
+    },
+    {
+      "diagnosis": "Acute laryngitis",
+      "severity": 4,
+      "support": 3217,
+      "precision": 0.9950418345212272,
+      "recall_sensitivity": 0.9981349082996581,
+      "specificity": 0.9998781527963934,
+      "f1": 0.9965859714463067
+    },
+    {
+      "diagnosis": "Boerhaave",
+      "severity": 2,
+      "support": 2083,
+      "precision": 1.0,
+      "recall_sensitivity": 0.99951992318771,
+      "specificity": 1.0,
+      "f1": 0.9997599039615847
+    },
+    {
+      "diagnosis": "Acute otitis media",
+      "severity": 4,
+      "support": 3516,
+      "precision": 1.0,
+      "recall_sensitivity": 1.0,
+      "specificity": 1.0,
+      "f1": 1.0
+    },
+    {
+      "diagnosis": "Acute pulmonary edema",
+      "severity": 1,
+      "support": 2598,
+      "precision": 1.0,
+      "recall_sensitivity": 1.0,
+      "specificity": 1.0,
+      "f1": 1.0
+    },
+    {
+      "diagnosis": "Anaphylaxis",
+      "severity": 1,
+      "support": 3799,
+      "precision": 1.0,
+      "recall_sensitivity": 1.0,
+      "specificity": 1.0,
+      "f1": 1.0
+    },
+    {
+      "diagnosis": "Anemia",
+      "severity": 4,
+      "support": 6842,
+      "precision": 1.0,
+      "recall_sensitivity": 1.0,
+      "specificity": 1.0,
+      "f1": 1.0
+    }
+  ],
+  "versions": {
+    "python": "3.12.13",
+    "numpy": "2.0.2",
+    "pandas": "2.3.3",
+    "scipy": "1.16.3",
+    "scikit_learn": "1.6.1",
+    "joblib": "1.5.3",
+    "xgboost": "2.1.4",
+    "flaml": "2.6.0"
+  }
+}

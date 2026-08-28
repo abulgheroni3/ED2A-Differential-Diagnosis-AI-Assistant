@@ -1,0 +1,132 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 840" role="img" aria-labelledby="title desc">
+  <title id="title">ED²A inference pipeline</title>
+  <desc id="desc">Two independent inference paths process clinical evidence and an optional chest X-ray. Their outputs are combined by a bounded late-fusion service, while the original clinical ranking is retained.</desc>
+  <defs>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="7" flood-color="#1a2a32" flood-opacity="0.10"/>
+    </filter>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#58706d"/>
+    </marker>
+    <style>
+      .bg { fill: #f6f8f7; }
+      .title { fill: #1a2a32; font: 700 34px Inter, "Segoe UI", Arial, sans-serif; }
+      .subtitle { fill: #5d6b6b; font: 400 17px Inter, "Segoe UI", Arial, sans-serif; }
+      .lane { fill: #5d6b6b; font: 700 14px Inter, "Segoe UI", Arial, sans-serif; letter-spacing: 1.7px; }
+      .box { fill: #ffffff; stroke: #d7dfdc; stroke-width: 2; rx: 18; filter: url(#shadow); }
+      .box-clinical { fill: #edf8f6; stroke: #147d73; }
+      .box-image { fill: #fff8ee; stroke: #e0b477; }
+      .box-fusion { fill: #1a2a32; stroke: #1a2a32; }
+      .box-output { fill: #ffffff; stroke: #147d73; }
+      .box-meta { fill: #eef3f1; stroke: #9dafaa; stroke-dasharray: 7 6; filter: none; }
+      .label { fill: #1f2a2a; font: 700 19px Inter, "Segoe UI", Arial, sans-serif; }
+      .body { fill: #5d6b6b; font: 400 15px Inter, "Segoe UI", Arial, sans-serif; }
+      .mini { fill: #5d6b6b; font: 400 13px Inter, "Segoe UI", Arial, sans-serif; }
+      .inverse-label { fill: #ffffff; font: 700 21px Inter, "Segoe UI", Arial, sans-serif; }
+      .inverse-body { fill: #d9e5e3; font: 400 15px Inter, "Segoe UI", Arial, sans-serif; }
+      .tag-teal { fill: #147d73; }
+      .tag-gold { fill: #b27b31; }
+      .tag-text { fill: #ffffff; font: 700 12px Inter, "Segoe UI", Arial, sans-serif; letter-spacing: 0.5px; }
+      .arrow { fill: none; stroke: #58706d; stroke-width: 3; marker-end: url(#arrow); }
+      .support { fill: none; stroke: #8da19d; stroke-width: 2.5; stroke-dasharray: 7 7; marker-end: url(#arrow); }
+      .divider { stroke: #d7dfdc; stroke-width: 2; }
+    </style>
+  </defs>
+
+  <rect class="bg" width="1440" height="840" rx="24"/>
+  <text class="title" x="60" y="62">ED²A inference pipeline</text>
+  <text class="subtitle" x="60" y="92">Clinical and radiographic models remain independent; the orchestration layer combines their outputs only when appropriate.</text>
+
+  <text class="lane" x="60" y="135">CLINICAL PATH</text>
+
+  <rect class="box box-clinical" x="60" y="160" width="270" height="150" rx="18"/>
+  <rect class="tag-teal" x="82" y="180" width="82" height="25" rx="12.5"/>
+  <text class="tag-text" x="123" y="197" text-anchor="middle">INPUT</text>
+  <text class="label" x="82" y="235">Patient context</text>
+  <text class="body" x="82" y="264">Age and sex</text>
+  <text class="body" x="82" y="287">Evidence tokens and initial evidence</text>
+
+  <path class="arrow" d="M 330 235 L 385 235"/>
+
+  <rect class="box" x="390" y="160" width="270" height="150" rx="18"/>
+  <text class="label" x="412" y="205">DDXPlus preprocessing</text>
+  <text class="body" x="412" y="235">Token parsing and validation</text>
+  <text class="body" x="412" y="258">Feature transformation</text>
+  <text class="mini" x="412" y="287">614 runtime features</text>
+
+  <path class="arrow" d="M 660 235 L 715 235"/>
+
+  <rect class="box box-clinical" x="720" y="160" width="270" height="150" rx="18"/>
+  <rect class="tag-teal" x="742" y="180" width="95" height="25" rx="12.5"/>
+  <text class="tag-text" x="789.5" y="197" text-anchor="middle">MODEL 1</text>
+  <text class="label" x="742" y="235">XGBoost</text>
+  <text class="body" x="742" y="264">49-class differential diagnosis</text>
+  <text class="body" x="742" y="287">Full score distribution</text>
+
+  <path class="arrow" d="M 990 235 L 1045 235"/>
+
+  <rect class="box" x="1050" y="160" width="330" height="150" rx="18"/>
+  <text class="label" x="1072" y="205">Clinical result</text>
+  <text class="body" x="1072" y="235">Top-k diagnoses and confidence</text>
+  <text class="body" x="1072" y="258">ICD-10 metadata and severity</text>
+  <text class="mini" x="1072" y="287">Always returned unchanged</text>
+
+  <line class="divider" x1="60" y1="353" x2="1380" y2="353"/>
+  <text class="lane" x="60" y="395">OPTIONAL CHEST X-RAY PATH</text>
+
+  <rect class="box box-image" x="60" y="420" width="270" height="150" rx="18"/>
+  <rect class="tag-gold" x="82" y="440" width="117" height="25" rx="12.5"/>
+  <text class="tag-text" x="140.5" y="457" text-anchor="middle">CONDITIONAL</text>
+  <text class="label" x="82" y="495">Chest radiograph</text>
+  <text class="body" x="82" y="524">JPEG, PNG or WebP</text>
+  <text class="body" x="82" y="547">Maximum upload: 10 MB</text>
+
+  <path class="arrow" d="M 330 495 L 385 495"/>
+
+  <rect class="box" x="390" y="420" width="270" height="150" rx="18"/>
+  <text class="label" x="412" y="465">Image validation</text>
+  <text class="body" x="412" y="495">Grayscale → RGB</text>
+  <text class="body" x="412" y="518">Resize to 224 × 224</text>
+  <text class="mini" x="412" y="547">ImageNet normalization</text>
+
+  <path class="arrow" d="M 660 495 L 715 495"/>
+
+  <rect class="box box-image" x="720" y="420" width="270" height="150" rx="18"/>
+  <rect class="tag-gold" x="742" y="440" width="95" height="25" rx="12.5"/>
+  <text class="tag-text" x="789.5" y="457" text-anchor="middle">MODEL 2</text>
+  <text class="label" x="742" y="495">ResNet50 · ONNX</text>
+  <text class="body" x="742" y="524">Binary opacity classifier</text>
+  <text class="mini" x="742" y="547">CPUExecutionProvider</text>
+
+  <path class="arrow" d="M 990 495 L 1045 495"/>
+
+  <rect class="box" x="1050" y="420" width="330" height="150" rx="18"/>
+  <text class="label" x="1072" y="465">Imaging assessment</text>
+  <text class="body" x="1072" y="495">Raw logit → sigmoid score</text>
+  <text class="body" x="1072" y="518">Threshold and uncertainty check</text>
+  <text class="mini" x="1072" y="547">Radiographic finding, not a diagnosis</text>
+
+  <path class="arrow" d="M 1360 235 L 1400 235 L 1400 600 L 900 600 L 900 625"/>
+  <path class="arrow" d="M 1215 570 L 1215 590 L 780 590 L 780 625"/>
+
+  <rect class="box box-meta" x="60" y="655" width="330" height="125" rx="18"/>
+  <text class="label" x="82" y="698">Metadata layer</text>
+  <text class="body" x="82" y="727">Evidence descriptions</text>
+  <text class="body" x="82" y="750">Condition severity and ICD-10</text>
+  <path class="support" d="M 390 717 L 505 717"/>
+
+  <rect class="box box-fusion" x="510" y="625" width="420" height="175" rx="18"/>
+  <text class="inverse-label" x="720" y="671" text-anchor="middle">Bounded late fusion</text>
+  <text class="inverse-body" x="720" y="704" text-anchor="middle">Adjusts only the Pneumonia log-score</text>
+  <text class="inverse-body" x="720" y="730" text-anchor="middle">when the image score is conclusive</text>
+  <text class="inverse-body" x="720" y="765" text-anchor="middle">No image or uncertain score → clinical ranking unchanged</text>
+
+  <path class="arrow" d="M 930 712 L 1045 712"/>
+
+  <rect class="box box-output" x="1050" y="625" width="330" height="175" rx="18"/>
+  <text class="label" x="1072" y="671">Integrated response</text>
+  <text class="body" x="1072" y="703">Clinical ranking</text>
+  <text class="body" x="1072" y="728">Integrated ranking</text>
+  <text class="body" x="1072" y="753">Fusion rationale and warnings</text>
+  <text class="mini" x="1072" y="780">Served by POST /predict-integrated</text>
+</svg>

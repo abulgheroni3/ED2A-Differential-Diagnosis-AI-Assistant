@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "selected_model": "XGBoost weighted",
+  "deployed_variant": "raw",
+  "class_order": [
+    "Acute COPD exacerbation / infection",
+    "Acute dystonic reactions",
+    "Acute laryngitis",
+    "Acute otitis media",
+    "Acute pulmonary edema",
+    "Acute rhinosinusitis",
+    "Allergic sinusitis",
+    "Anaphylaxis",
+    "Anemia",
+    "Atrial fibrillation",
+    "Boerhaave",
+    "Bronchiectasis",
+    "Bronchiolitis",
+    "Bronchitis",
+    "Bronchospasm / acute asthma exacerbation",
+    "Chagas",
+    "Chronic rhinosinusitis",
+    "Cluster headache",
+    "Croup",
+    "Ebola",
+    "Epiglottitis",
+    "GERD",
+    "Guillain-Barré syndrome",
+    "HIV (initial infection)",
+    "Influenza",
+    "Inguinal hernia",
+    "Larygospasm",
+    "Localized edema",
+    "Myasthenia gravis",
+    "Myocarditis",
+    "PSVT",
+    "Pancreatic neoplasm",
+    "Panic attack",
+    "Pericarditis",
+    "Pneumonia",
+    "Possible NSTEMI / STEMI",
+    "Pulmonary embolism",
+    "Pulmonary neoplasm",
+    "SLE",
+    "Sarcoidosis",
+    "Scombroid food poisoning",
+    "Spontaneous pneumothorax",
+    "Spontaneous rib fracture",
+    "Stable angina",
+    "Tuberculosis",
+    "URTI",
+    "Unstable angina",
+    "Viral pharyngitis",
+    "Whooping cough"
+  ],
+  "n_features": 614,
+  "files": {
+    "best_model.pkl": {
+      "bytes": 4702982,
+      "sha256": "31b1edc5ee80d452118df423c85176c58d20ba70209bf7f80dcb420582b04a65"
+    },
+    "preprocessor.pkl": {
+      "bytes": 4679,
+      "sha256": "530cb5c2c695419bd791ba0eb7371d26e16647a0c59dd43df8170c5024e978f2"
+    },
+    "label_encoder.pkl": {
+      "bytes": 835,
+      "sha256": "cb2eefe57ab192aae72cad55f72e01f4f356285b8933c8578733943df4fc85b4"
+    },
+    "model_metrics.json": {
+      "bytes": 9701,
+      "sha256": "7a599a7e3002d41f80b160632ec5f5d759caf5c70358e91181afbff2e8bd7ae5"
+    },
+    "requirements_model.txt": {
+      "bytes": 90,
+      "sha256": "5475363c79584ed801be5d301d4f5ed982da7a59ad0fa35d3dba9bc84189ba98"
+    },
+    "README_INSTALLAZIONE.txt": {
+      "bytes": 264,
+      "sha256": "1ef04f2492fe0e56ce06d953c7e19793edbcdcf14844cef89db9d1565f040651"
+    }
+  }
+}

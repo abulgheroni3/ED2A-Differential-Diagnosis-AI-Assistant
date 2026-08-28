@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "service_name": "advanced_pneumonia",
+  "generated_at_utc": "2026-08-20T14:33:10.673589+00:00",
+  "evaluation_split": "validation (30% patient-level stratified hold-out)",
+  "threshold": 0.5,
+  "best_epoch": 3,
+  "best_val_loss": 0.6622320608648395,
+  "validation_loss": 0.6621528880583654,
+  "metrics": {
+    "accuracy": 0.775043717212091,
+    "balanced_accuracy": 0.7942697477603605,
+    "precision": 0.5005018400802944,
+    "recall_sensitivity": 0.8292682926829268,
+    "specificity": 0.7592712028377943,
+    "f1": 0.6242436887127061,
+    "roc_auc": 0.8831170618733246,
+    "pr_auc_average_precision": 0.7001302745561352
+  },
+  "confusion_matrix": {
+    "tn": 4709,
+    "fp": 1493,
+    "fn": 308,
+    "tp": 1496
+  },
+  "class_support": {
+    "NO_PNEUMONIA": 6202,
+    "PNEUMONIA": 1804,
+    "total": 8006
+  },
+  "undefined_metrics": [],
+  "training_summary": {
+    "best_epoch": 3,
+    "best_val_loss": 0.6622320608648395,
+    "epochs_completed": 13,
+    "max_epochs": 100,
+    "early_stopping_patience": 10,
+    "early_stopping_min_delta": 0.0001,
+    "early_stopped": true,
+    "checkpoint_path": "/kaggle/working/ed2a_artifacts/advanced_pneumonia/advanced_pneumonia_best_epoch.pt"
+  }
+}

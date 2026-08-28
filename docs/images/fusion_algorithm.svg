@@ -1,0 +1,113 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 1190" role="img" aria-labelledby="title desc">
+  <title id="title">ED²A bounded late-fusion algorithm</title>
+  <desc id="desc">The algorithm keeps the clinical ranking unchanged when no usable chest X-ray is available or the image score is inconclusive. Otherwise it applies a bounded threshold-relative signal to the Pneumonia log-score and normalizes the full distribution with softmax.</desc>
+  <defs>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="7" flood-color="#1a2a32" flood-opacity="0.10"/>
+    </filter>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#58706d"/>
+    </marker>
+    <style>
+      .bg { fill: #f6f8f7; }
+      .title { fill: #1a2a32; font: 700 34px Inter, "Segoe UI", Arial, sans-serif; }
+      .subtitle { fill: #5d6b6b; font: 400 17px Inter, "Segoe UI", Arial, sans-serif; }
+      .box { fill: #ffffff; stroke: #d7dfdc; stroke-width: 2; rx: 18; filter: url(#shadow); }
+      .clinical { fill: #edf8f6; stroke: #147d73; }
+      .image { fill: #fff8ee; stroke: #e0b477; }
+      .decision { fill: #ffffff; stroke: #8da19d; stroke-width: 2.5; }
+      .formula { fill: #eef3f1; stroke: #9dafaa; }
+      .unchanged { fill: #f2f5f4; stroke: #8da19d; }
+      .result { fill: #1a2a32; stroke: #1a2a32; }
+      .label { fill: #1f2a2a; font: 700 19px Inter, "Segoe UI", Arial, sans-serif; }
+      .body { fill: #5d6b6b; font: 400 15px Inter, "Segoe UI", Arial, sans-serif; }
+      .small { fill: #5d6b6b; font: 400 13px Inter, "Segoe UI", Arial, sans-serif; }
+      .math { fill: #1a2a32; font: 600 18px "Segoe UI", Arial, sans-serif; }
+      .inverse-label { fill: #ffffff; font: 700 20px Inter, "Segoe UI", Arial, sans-serif; }
+      .inverse-body { fill: #d9e5e3; font: 400 15px Inter, "Segoe UI", Arial, sans-serif; }
+      .tag-teal { fill: #147d73; }
+      .tag-gold { fill: #b27b31; }
+      .tag-text { fill: #ffffff; font: 700 12px Inter, "Segoe UI", Arial, sans-serif; letter-spacing: 0.5px; }
+      .arrow { fill: none; stroke: #58706d; stroke-width: 3; marker-end: url(#arrow); }
+      .keep-line { fill: none; stroke: #8da19d; stroke-width: 2.5; stroke-dasharray: 7 7; marker-end: url(#arrow); }
+      .branch { fill: #5d6b6b; font: 700 13px Inter, "Segoe UI", Arial, sans-serif; }
+      .note { fill: #0d5f58; font: 700 14px Inter, "Segoe UI", Arial, sans-serif; }
+    </style>
+  </defs>
+
+  <rect class="bg" width="1440" height="1190" rx="24"/>
+  <text class="title" x="60" y="62">Bounded late fusion: XGBoost + ResNet50</text>
+  <text class="subtitle" x="60" y="92">Only the Pneumonia score may change. Every other clinical class keeps its relative ordering.</text>
+
+  <rect class="box clinical" x="70" y="135" width="470" height="150" rx="18"/>
+  <rect class="tag-teal" x="94" y="155" width="147" height="25" rx="12.5"/>
+  <text class="tag-text" x="167.5" y="172" text-anchor="middle">XGBOOST OUTPUT</text>
+  <text class="label" x="94" y="214">Clinical distribution</text>
+  <text class="math" x="94" y="242">p = [p₁, …, p₄₉]</text>
+  <text class="small" x="94" y="270">aligned with the 49 DDXPlus labels</text>
+
+  <rect class="box image" x="900" y="135" width="470" height="150" rx="18"/>
+  <rect class="tag-gold" x="924" y="155" width="140" height="25" rx="12.5"/>
+  <text class="tag-text" x="994" y="172" text-anchor="middle">RESNET OUTPUT</text>
+  <text class="label" x="924" y="214">Image evidence</text>
+  <text class="math" x="924" y="242">q = sigmoid(z)</text>
+  <text class="small" x="924" y="270">decision threshold t · uncertainty margin m</text>
+
+  <path class="keep-line" d="M 305 285 L 305 1105 L 415 1105"/>
+  <text class="note" x="325" y="325">Clinical ranking is retained verbatim</text>
+
+  <path class="arrow" d="M 1135 285 L 1135 335"/>
+
+  <polygon class="decision" points="1135,335 1320,410 1135,485 950,410"/>
+  <text class="label" x="1135" y="401" text-anchor="middle">Usable image?</text>
+  <text class="small" x="1135" y="426" text-anchor="middle">decoded and analysed</text>
+
+  <path class="arrow" d="M 950 410 L 820 410 L 820 944 L 915 944"/>
+  <text class="branch" x="850" y="396">NO</text>
+
+  <path class="arrow" d="M 1135 485 L 1135 535"/>
+  <text class="branch" x="1151" y="518">YES</text>
+
+  <polygon class="decision" points="1135,535 1320,610 1135,685 950,610"/>
+  <text class="label" x="1135" y="600" text-anchor="middle">Conclusive score?</text>
+  <text class="math" x="1135" y="628" text-anchor="middle">|q − t| &gt; m</text>
+
+  <path class="arrow" d="M 950 610 L 865 610 L 865 944 L 915 944"/>
+  <text class="branch" x="875" y="596">NO</text>
+
+  <path class="arrow" d="M 1135 685 L 1135 730"/>
+  <text class="branch" x="1151" y="716">YES</text>
+
+  <rect class="box formula" x="900" y="735" width="470" height="135" rx="18"/>
+  <text class="label" x="924" y="772">Bounded image signal</text>
+  <text class="math" x="924" y="806">s = (q − t) / (1 − t)</text>
+  <text class="small" x="1160" y="806">when q ≥ t</text>
+  <text class="math" x="924" y="838">s = (q − t) / t</text>
+  <text class="small" x="1120" y="838">when q &lt; t · clamp to [−1, 1]</text>
+
+  <path class="arrow" d="M 900 802 L 790 802"/>
+
+  <rect class="box formula" x="355" y="720" width="430" height="175" rx="18"/>
+  <text class="label" x="379" y="758">Targeted log-score update</text>
+  <text class="math" x="379" y="796">ℓᵢ = log(max(pᵢ, ε))</text>
+  <text class="math" x="379" y="832">ℓPneumonia ← ℓPneumonia + αs</text>
+  <text class="small" x="379" y="864">α defaults to 0.75 · no other log-score is edited</text>
+
+  <path class="arrow" d="M 570 895 L 570 925"/>
+
+  <rect class="box result" x="355" y="930" width="430" height="105" rx="18"/>
+  <text class="inverse-label" x="570" y="972" text-anchor="middle">Stable softmax</text>
+  <text class="inverse-body" x="570" y="1002" text-anchor="middle">Integrated 49-class distribution → Top-k</text>
+
+  <rect class="box unchanged" x="915" y="900" width="455" height="135" rx="18"/>
+  <text class="label" x="939" y="942">No fusion</text>
+  <text class="body" x="939" y="973">Missing, invalid, unavailable or inconclusive image</text>
+  <text class="small" x="939" y="1003">Integrated ranking mirrors the clinical ranking</text>
+
+  <path class="arrow" d="M 570 1035 L 570 1050"/>
+  <path class="arrow" d="M 1142 1035 L 1142 1105 L 1025 1105"/>
+
+  <rect class="box clinical" x="420" y="1055" width="600" height="100" rx="18"/>
+  <text class="label" x="444" y="1093">API response</text>
+  <text class="body" x="444" y="1124">Original clinical Top-k retained · integrated Top-k fused or mirrored</text>
+</svg>

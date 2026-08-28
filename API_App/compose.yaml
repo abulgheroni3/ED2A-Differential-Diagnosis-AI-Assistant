@@ -1,0 +1,14 @@
+name: ed2a
+
+services:
+  ed2a:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: ed2a:latest
+    container_name: ed2a
+    ports:
+      - "8000:8000"
+    restart: unless-stopped
+    # No bind mounts: the image is self-contained and the artifacts are baked in.
+    # The health check is the one declared in the Dockerfile.
