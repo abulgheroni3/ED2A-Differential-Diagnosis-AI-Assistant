@@ -191,11 +191,11 @@ FastAPI also exposes `/docs`, `/redoc` and `/openapi.json` automatically.
 
 ```json
 {
-  "age": 52,
-  "sex": "M",
-  "evidences": ["E_123", "E_201", "E_214", "E_77", "E_66"],
-  "initial_evidence": "E_66",
-  "k": 5
+  "age": 65,
+  "sex": "F",
+  "evidences": ["E_91", "E_201", "E_77", "E_94", "E_79"],
+  "initial_evidence": "E_94",
+  "k": 10
 }
 ```
 
@@ -215,11 +215,11 @@ Clinical Top-k prediction:
 curl --request POST 'http://localhost:8000/predict-topk' \
   --header 'Content-Type: application/json' \
   --data '{
-    "age": 52,
-    "sex": "M",
-    "evidences": ["E_123", "E_201", "E_214", "E_77", "E_66"],
-    "initial_evidence": "E_66",
-    "k": 5
+    "age": 65,
+    "sex": "F",
+    "evidences": ["E_91", "E_201", "E_77", "E_94", "E_79"],
+    "initial_evidence": "E_94",
+    "k": 10
   }'
 ```
 
@@ -227,7 +227,7 @@ Integrated request with a chest X-ray:
 
 ```bash
 curl --request POST 'http://localhost:8000/predict-integrated' \
-  --form 'payload={"age":52,"sex":"M","evidences":["E_123","E_201","E_214","E_77","E_66"],"initial_evidence":"E_66","k":5}' \
+  --form 'payload={"age":65,"sex":"F","evidences":["E_91","E_201","E_77","E_94","E_79"],"initial_evidence":"E_94","k":10}' \
   --form 'chest_xray=@samples/chest-xrays/pneumonia-compatible-opacity.png;type=image/png'
 ```
 
@@ -275,17 +275,17 @@ samples/
 
 All five payloads were executed through the shipped preprocessor and XGBoost model. Their evidence identifiers were checked against `release_evidences.json`, and the panel state was checked against the current frontend trigger logic.
 
-| Sample | Clinical focus | Expected top-ranked diagnosis | Model score | Chest X-ray panel |
-| --- | --- | --- | ---: | --- |
-| `01_upper_respiratory.json` | Nasal congestion, cough and sore throat | URTI | 85.418% | Hidden |
-| `02_respiratory_with_xray.json` | Known COPD with cough, wheeze, sputum change and dyspnoea | Acute COPD exacerbation / infection | 99.319% | Shown |
-| `03_exertional_cardiopulmonary.json` | Exertional symptoms with cardiovascular risk factors | Stable angina | 84.753% | Hidden |
-| `04_sinonasal_allergic.json` | Sinonasal symptoms and allergic background | Allergic sinusitis | 99.9999% | Shown |
-| `05_pleuritic_red_flag.json` | Pleuritic pain, dyspnoea and thromboembolic risk factors | Pulmonary embolism | 99.9993% | Shown |
+| Sample | Core evidence | Additional evidence | Initial evidence | Expected top-ranked diagnosis | Chest X-ray panel |
+| --- | --- | --- | --- | --- | --- |
+| `01_upper_respiratory.json` | `E_181` — nasal congestion or clear rhinorrhea; `E_201` — cough; `E_97` — sore throat | `E_48` — lives with four or more people; `E_222` — daily exposure to second-hand cigarette smoke | `E_97` | URTI | Hidden |
+| `02_respiratory_with_xray.json` | `E_91` — fever; `E_201` — cough; `E_77` — coloured or increased sputum; `E_94` — chills or shivers | `E_79` — current smoking | `E_94` | Acute COPD exacerbation / infection | Shown |
+| `03_exertional_cardiopulmonary.json` | `E_218` — symptoms worsen with exertion and improve with rest; `E_89` — persistent fatigue or non-restorative sleep | `E_79` — current smoking; `E_71` — hypercholesterolaemia or lipid-lowering therapy; `E_225` — early cardiovascular disease in a close relative | `E_218` | Stable angina | Hidden |
+| `04_sinonasal_allergic.json` | `E_181` — nasal congestion or clear rhinorrhea; `E_201` — cough; `E_169` — itching of the nose or back of the throat | `E_226` — predisposition to common allergies; `E_124` — asthma or previous bronchodilator use | `E_181` | Allergic sinusitis | Shown |
+| `05_pleuritic_red_flag.json` | `E_151` — swelling; `E_220` — pain worsened by deep inspiration; `E_66` — significant shortness of breath | `E_109` — previous deep-vein thrombosis; `E_196` — surgery within the previous month | `E_220` | Pulmonary embolism | Shown |
 
-These values are artifact-specific model scores, not calibrated clinical probabilities. Re-run the cases whenever the model, preprocessor, label encoder or payloads change. The complete evidence map, validation scope and suggested demonstration sequence are documented in `samples/README.md`.
+These expected outputs are specific to the included artifacts. Re-run the cases whenever the model, preprocessor, label encoder or payloads change. The validation scope and suggested demonstration sequence are documented in `samples/README.md`.
 
-Case 02 deliberately represents a COPD exacerbation rather than a forced Pneumonia prediction. The X-ray trigger controls whether imaging can be assessed; it is not a diagnosis. A usable image is evaluated independently, and the experimental fusion stage can adjust only the Pneumonia entry while preserving the original clinical ranking.
+Case 02 uses `k=10`. With the current clinical artifacts, **Pneumonia appears at rank 7**, so the effect of image-assisted re-ranking remains visible. In a deterministic fusion check using the default threshold and weight, a supporting image-model score of `0.9` increased the Pneumonia value from `2.507%` to `4.475%` and moved it from rank 7 to rank 6; a non-supporting score of `0.1` reduced it to `1.391%`. These two image scores are controlled fusion-test inputs, not predictions from the sample radiographs.
 
 Run one of the examples against the JSON endpoint from the repository root:
 

@@ -15,41 +15,53 @@ Complete this file before committing or sharing any demonstration image. Use the
 ## `pneumonia-compatible-opacity.png`
 
 - Intended demo category: `PNEUMONIA_COMPATIBLE_OPACITY`
-- Source dataset: `rsna-pneumonia-detection-challenge`
-- Dataset or competition URL: `https://www.kaggle.com/competitions/rsna-pneumonia-detection-challenge`
-- Licence or redistribution terms: `https://www.kaggle.com/competitions/rsna-pneumonia-detection-challenge/rules#7-competition-data`
-- Exact label: `Lung Opacity`
-- Date retrieved: `n/a`
-- Original format: `DICOM`
-- Processing performed: `original`
-- De-identification verified by: `n/a`
-- Verification date: `n/a`
+- Source dataset: `[PLACEHOLDER: dataset name]`
+- Dataset or competition URL: `[PLACEHOLDER: URL]`
+- Original image or patient identifier: `[PLACEHOLDER: source ID]`
+- Source split and annotation file: `[PLACEHOLDER: split / labels file]`
+- Exact source label: `[PLACEHOLDER: copy the authoritative label verbatim]`
+- Licence or redistribution terms: `[PLACEHOLDER: licence name and URL]`
+- Date retrieved: `[PLACEHOLDER: YYYY-MM-DD]`
+- Original format: `[PLACEHOLDER: DICOM / PNG / JPEG / other]`
+- Processing performed: `[PLACEHOLDER: conversion, crop, resize, redaction and metadata stripping]`
+- De-identification verified by: `[PLACEHOLDER: name or initials]`
+- Verification date: `[PLACEHOLDER: YYYY-MM-DD]`
+- SHA-256 of repository file: `[PLACEHOLDER: checksum]`
+- Notes: `[PLACEHOLDER]`
 
 ## `no-pneumonia-compatible-opacity-01.png`
 
 - Intended demo category: `NO_PNEUMONIA_COMPATIBLE_OPACITY`
-- Source dataset: `rsna-pneumonia-detection-challenge`
-- Dataset or competition URL: `https://www.kaggle.com/competitions/rsna-pneumonia-detection-challenge`
-- Licence or redistribution terms: `https://www.kaggle.com/competitions/rsna-pneumonia-detection-challenge/rules#7-competition-data`
-- Exact label: `No Lung Opacity/Not Normal`
-- Date retrieved: `n/a`
-- Original format: `DICOM`
-- Processing performed: `original`
-- De-identification verified by: `n/a`
-- Verification date: `n/a`
+- Source dataset: `[PLACEHOLDER: dataset name]`
+- Dataset or competition URL: `[PLACEHOLDER: URL]`
+- Original image or patient identifier: `[PLACEHOLDER: source ID]`
+- Source split and annotation file: `[PLACEHOLDER: split / labels file]`
+- Exact source label: `[PLACEHOLDER: copy the authoritative label verbatim]`
+- Licence or redistribution terms: `[PLACEHOLDER: licence name and URL]`
+- Date retrieved: `[PLACEHOLDER: YYYY-MM-DD]`
+- Original format: `[PLACEHOLDER: DICOM / PNG / JPEG / other]`
+- Processing performed: `[PLACEHOLDER: conversion, crop, resize, redaction and metadata stripping]`
+- De-identification verified by: `[PLACEHOLDER: name or initials]`
+- Verification date: `[PLACEHOLDER: YYYY-MM-DD]`
+- SHA-256 of repository file: `[PLACEHOLDER: checksum]`
+- Notes: `[PLACEHOLDER]`
 
 ## `no-pneumonia-compatible-opacity-02.png`
 
 - Intended demo category: `NO_PNEUMONIA_COMPATIBLE_OPACITY`
-- Source dataset: `rsna-pneumonia-detection-challenge`
-- Dataset or competition URL: `https://www.kaggle.com/competitions/rsna-pneumonia-detection-challenge`
-- Licence or redistribution terms: `https://www.kaggle.com/competitions/rsna-pneumonia-detection-challenge/rules#7-competition-data`
-- Exact label: `Normal`
-- Date retrieved: `n/a`
-- Original format: `DICOM`
-- Processing performed: `original`
-- De-identification verified by: `n/a`
-- Verification date: `n/a`
+- Source dataset: `[PLACEHOLDER: dataset name]`
+- Dataset or competition URL: `[PLACEHOLDER: URL]`
+- Original image or patient identifier: `[PLACEHOLDER: source ID]`
+- Source split and annotation file: `[PLACEHOLDER: split / labels file]`
+- Exact source label: `[PLACEHOLDER: copy the authoritative label verbatim]`
+- Licence or redistribution terms: `[PLACEHOLDER: licence name and URL]`
+- Date retrieved: `[PLACEHOLDER: YYYY-MM-DD]`
+- Original format: `[PLACEHOLDER: DICOM / PNG / JPEG / other]`
+- Processing performed: `[PLACEHOLDER: conversion, crop, resize, redaction and metadata stripping]`
+- De-identification verified by: `[PLACEHOLDER: name or initials]`
+- Verification date: `[PLACEHOLDER: YYYY-MM-DD]`
+- SHA-256 of repository file: `[PLACEHOLDER: checksum]`
+- Notes: `[PLACEHOLDER]`
 
 ## Label interpretation
 

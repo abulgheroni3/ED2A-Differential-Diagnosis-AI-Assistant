@@ -28,15 +28,15 @@ The application does not import the JSON files automatically. Enter the same val
 
 The following results were produced with the XGBoost model, preprocessor and label encoder distributed with this project. The X-ray state was checked against the current trigger logic in `templates/index.html`.
 
-| Case | Fixed input | Expected top-ranked diagnosis | Model score | X-ray panel |
-| --- | --- | --- | ---: | --- |
-| `01_upper_respiratory.json` | 28, F | URTI | 85.418% | Hidden |
-| `02_respiratory_with_xray.json` | 52, M | Acute COPD exacerbation / infection | 99.319% | Shown |
-| `03_exertional_cardiopulmonary.json` | 64, M | Stable angina | 84.753% | Hidden |
-| `04_sinonasal_allergic.json` | 34, F | Allergic sinusitis | 99.9999% | Shown |
-| `05_pleuritic_red_flag.json` | 47, M | Pulmonary embolism | 99.9993% | Shown |
+| Case | Fixed input | Expected top-ranked diagnosis | X-ray panel |
+| --- | --- | --- | --- |
+| `01_upper_respiratory.json` | 28, F | URTI | Hidden |
+| `02_respiratory_with_xray.json` | 65, F | Acute COPD exacerbation / infection | Shown |
+| `03_exertional_cardiopulmonary.json` | 64, M | Stable angina | Hidden |
+| `04_sinonasal_allergic.json` | 34, F | Allergic sinusitis | Shown |
+| `05_pleuritic_red_flag.json` | 47, M | Pulmonary embolism | Shown |
 
-These percentages are model outputs, not calibrated clinical probabilities. Retraining the model, replacing an artifact or changing a payload can alter the ranking. Re-run the cases after any such change.
+These expected rankings are specific to the included artifacts. Retraining the model, replacing an artifact or changing a payload can alter them; re-run the cases after any such change.
 
 ## Case definitions
 
@@ -52,17 +52,19 @@ Expected output: **URTI**. The X-ray panel remains hidden.
 
 This case provides a straightforward upper-respiratory demonstration without invoking the imaging workflow.
 
-### 02 — COPD exacerbation with X-ray workflow
+### 02 — Acute respiratory presentation with X-ray workflow
 
 Expected output: **Acute COPD exacerbation / infection**. The X-ray panel is shown.
 
-- `E_123`: known chronic obstructive pulmonary disease;
+- `E_91`: fever;
 - `E_201`: cough;
-- `E_214`: expiratory wheeze;
 - `E_77`: coloured or increased sputum production;
-- `E_66`: significant shortness of breath — selected as the initial evidence.
+- `E_94`: chills or shivers — selected as the initial evidence;
+- `E_79`: current smoking.
 
-The panel appears because the case contains multiple respiratory evidences and a pneumonia-relevant context (`E_123`). Its presence means that chest imaging may be assessed; it does not mean that the clinical model predicted Pneumonia.
+This payload uses `k=10`. With the current clinical artifacts, **Pneumonia is ranked seventh**, so it remains visible before and after image-assisted re-ranking. The panel appears because cough and sputum are combined with systemic evidence such as fever and chills.
+
+The fusion logic was also checked with controlled image-model inputs. With the default threshold and weight, a supporting score of `0.9` increased Pneumonia from `2.507%` to `4.475%` and moved it from rank 7 to rank 6. A non-supporting score of `0.1` reduced it to `1.391%`. These values verify the fusion algorithm; they are not outputs produced from the radiographs stored in this directory.
 
 ### 03 — Exertional cardiovascular presentation
 
@@ -108,7 +110,8 @@ All five cases were checked as follows:
 2. verified against `release_evidences.json`;
 3. executed through the shipped preprocessor and XGBoost model;
 4. compared with the expected top-ranked diagnosis in the table above;
-5. evaluated against the current frontend X-ray trigger rules.
+5. evaluated against the current frontend X-ray trigger rules;
+6. for case 02, checked that Pneumonia remains in the clinical Top-10 and that controlled positive and negative image scores modify its integrated value in the expected direction.
 
 The checks cover deterministic software behaviour for the included artifacts. They do not establish clinical validity, diagnostic accuracy on these synthetic cases or generalisability to real patients.
 
@@ -144,11 +147,11 @@ The integrated endpoint accepts the clinical request as a multipart JSON field a
 
 ```bash
 curl --request POST 'http://localhost:8000/predict-integrated' \
-  --form 'payload={"age":52,"sex":"M","evidences":["E_123","E_201","E_214","E_77","E_66"],"initial_evidence":"E_66","k":5}' \
+  --form 'payload={"age":65,"sex":"F","evidences":["E_91","E_201","E_77","E_94","E_79"],"initial_evidence":"E_94","k":10}' \
   --form 'chest_xray=@samples/chest-xrays/pneumonia-compatible-opacity.png;type=image/png'
 ```
 
-The endpoint always preserves the original clinical ranking in its response. A usable, non-inconclusive image can adjust only the Pneumonia entry in the experimental integrated ranking. It may therefore leave the leading diagnosis unchanged, particularly in case 02 where the clinical model strongly favours a COPD exacerbation.
+The endpoint always preserves the original clinical ranking in its response. A usable, non-inconclusive image adjusts only the Pneumonia entry in the experimental integrated ranking. Case 02 is configured with `k=10` specifically so that the clinical and integrated Pneumonia values can be compared.
 
 ## Suggested demonstration sequence
 

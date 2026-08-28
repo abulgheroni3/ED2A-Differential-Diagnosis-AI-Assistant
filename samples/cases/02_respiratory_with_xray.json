@@ -1,13 +1,13 @@
 {
-  "age": 52,
-  "sex": "M",
+  "age": 65,
+  "sex": "F",
   "evidences": [
-    "E_123",
+    "E_91",
     "E_201",
-    "E_214",
     "E_77",
-    "E_66"
+    "E_94",
+    "E_79"
   ],
-  "initial_evidence": "E_66",
-  "k": 5
+  "initial_evidence": "E_94",
+  "k": 10
 }
