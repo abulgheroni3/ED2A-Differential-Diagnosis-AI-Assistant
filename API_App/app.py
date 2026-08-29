@@ -288,12 +288,14 @@ def _template_context(
         ),
         "result": result,
         "error": error,
+        # A freshly opened page starts with no evidence selected. The catalogue
+        # still offers every evidence: only the initial selection is empty.
         "form": form_values
         or {
             "age": "",
             "sex": "M",
-            "evidences": "E_91, E_201, E_66, E_56_@_4",
-            "initial_evidence": "E_91",
+            "evidences": "",
+            "initial_evidence": "",
             "k": 5,
         },
     }
