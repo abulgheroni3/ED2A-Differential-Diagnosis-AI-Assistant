@@ -1,13 +1,15 @@
 {
   "schema_version": 1,
-  "generated_at_utc": "2026-08-06T07:35:02.332064+00:00",
+  "generated_at_utc": "2026-08-29T17:06:15.265329+00:00",
   "dataset": {
     "name": "DDXPlus English v2",
     "kaggle_ref": "deveddu17xx/ddxplus-english-v2",
-    "quick_mode": false,
-    "train_rows": 1025602,
-    "test_rows": 134529,
-    "n_classes": 49
+    "usable_rows_before_augmentation": 1292579,
+    "training_rows_after_augmentation": 926862,
+    "augmentation_rows_added": 22057,
+    "n_classes": 49,
+    "n_transformed_features": 611,
+    "quick_run": false
   },
   "problem": {
     "task": "single-label multiclass classification",
@@ -19,311 +21,860 @@
       "INITIAL_EVIDENCE"
     ],
     "forbidden_leakage_features": [
-      "DIFFERENTIAL_DIAGNOSIS",
-      "DIFFERENTIAL_DIGNOSIS",
-      "PATHOLOGY"
+      "PATHOLOGY",
+      "DIFFERENTIAL_DIAGNOSIS"
     ],
-    "selection_metric": "macro_f1"
+    "selection_metric": "validation macro F1"
+  },
+  "split": {
+    "strategy": "shuffled stratified holdout",
+    "random_state": 42,
+    "train_rows_before_augmentation": 904805,
+    "validation_rows": 258516,
+    "test_rows": 129258,
+    "train_fraction": 0.6999997679058688,
+    "validation_fraction": 0.2000001547294208,
+    "test_fraction": 0.1000000773647104
+  },
+  "training": {
+    "flaml_max_iter": 100,
+    "flaml_max_trials": 100,
+    "flaml_recorded_trials": 100,
+    "flaml_actual_logged_trials": 100,
+    "flaml_native_early_stop": true,
+    "flaml_native_early_stop_kind": "boolean convergence-based; no numeric trial patience",
+    "flaml_auto_augment": false,
+    "flaml_stopped_before_trial_cap": false,
+    "flaml_best_estimator": "xgboost",
+    "flaml_best_config": {
+      "n_estimators": 738,
+      "max_leaves": 4,
+      "min_child_weight": 0.02440225787253465,
+      "learning_rate": 0.11390489290140891,
+      "subsample": 0.7161551988416289,
+      "colsample_bylevel": 0.4115932106915078,
+      "colsample_bytree": 1.0,
+      "reg_alpha": 0.002363556830734412,
+      "reg_lambda": 9.431832977702191
+    },
+    "flaml_best_validation_macro_f1": 0.9969893738276346,
+    "flaml_search_seconds": 13421.725192521,
+    "flaml_full_refit_seconds": 214.7464392719994,
+    "xgboost_rounds": 100,
+    "xgboost_max_rounds": 100,
+    "xgboost_executed_rounds": 100,
+    "xgboost_best_iteration": 99,
+    "xgboost_best_round": 100,
+    "xgboost_best_score_validation_mlogloss": 0.02310621092969039,
+    "xgboost_early_stopping_rounds": 20,
+    "xgboost_early_stopped": false,
+    "xgboost_early_stopping_monitor": "validation_1 / mlogloss (20% validation split)",
+    "xgboost_learning_rate": 0.05,
+    "xgboost_fit_seconds": 45.04246413100191,
+    "xgboost_device": "cuda",
+    "xgboost_configured_device": "cuda",
+    "data_augmentation": {
+      "method": "training-only secondary-evidence masking",
+      "target_quantile": 0.25,
+      "maximum_rows_per_class": 2000,
+      "rows_added": 22057
+    },
+    "class_weighting": "balanced weights computed from augmented training labels"
   },
   "selection": {
-    "selected_model": "XGBoost weighted",
-    "deployed_variant": "raw",
-    "model_metadata": {
-      "family": "Gradient Boosted Trees",
-      "fit_seconds": 107.248774766922,
-      "training_rows": 1025602,
-      "deployment_candidate": true,
-      "api_class_order_compatible": true,
-      "runtime_dependencies": [
-        "xgboost"
-      ],
-      "details": {
-        "parameters": {
-          "objective": "multi:softprob",
-          "num_class": 49,
-          "n_estimators": 600,
-          "learning_rate": 0.06,
-          "max_depth": 7,
-          "min_child_weight": 2.0,
-          "subsample": 0.85,
-          "colsample_bytree": 0.8,
-          "reg_alpha": 0.05,
-          "reg_lambda": 1.5,
-          "gamma": 0.0,
-          "max_bin": 256,
-          "tree_method": "hist",
-          "eval_metric": "mlogloss",
-          "early_stopping_rounds": 35,
-          "random_state": 42,
-          "n_jobs": -1,
-          "device": "cuda"
-        },
-        "best_iteration": 251,
-        "gpu_requested": true
-      }
-    },
+    "selected_model": "FLAML AutoML",
+    "selected_model_class": "xgboost.sklearn.XGBClassifier",
+    "deployment_inference_device": "cpu",
     "validation_results": [
       {
-        "model": "XGBoost weighted",
-        "family": "Gradient Boosted Trees",
-        "fit_seconds": 107.248774766922,
-        "training_rows": 1025602,
-        "deployment_candidate": true,
-        "accuracy": 0.9973272529596521,
-        "balanced_accuracy": 0.9963255337210333,
-        "macro_precision": 0.9973771373332834,
-        "macro_recall_sensitivity": 0.9963255337210333,
-        "macro_specificity": 0.9999443181766304,
-        "macro_f1": 0.9967038725045149,
-        "weighted_f1": 0.9972959351895092,
-        "top_3_accuracy": 1.0,
-        "top_5_accuracy": 1.0,
-        "log_loss": 0.007988999181026246,
-        "multiclass_brier": 0.004495881307833797,
-        "top_label_ece": 0.0005021501520631992
-      },
-      {
         "model": "FLAML AutoML",
-        "family": "AutoML",
-        "fit_seconds": 813.3185720443726,
-        "training_rows": 200000,
-        "deployment_candidate": true,
-        "accuracy": 0.9968289441894177,
-        "balanced_accuracy": 0.9954488654314719,
-        "macro_precision": 0.9969057943086163,
-        "macro_recall_sensitivity": 0.9954488654314719,
-        "macro_specificity": 0.9999338226484387,
-        "macro_f1": 0.9959841686100698,
-        "weighted_f1": 0.9967862757810049,
-        "top_3_accuracy": 1.0,
-        "top_5_accuracy": 1.0,
-        "log_loss": 0.00959657049922507,
-        "multiclass_brier": 0.005196926675258535,
-        "top_label_ece": 0.0008972224354829513
+        "Accuracy": 0.9976442463909391,
+        "Balanced accuracy": 0.9968667417968292,
+        "Precision (macro)": 0.9975834835773293,
+        "Sensitivity / Recall (macro)": 0.9968667417968292,
+        "Specificity (macro OvR)": 0.9999509455751617,
+        "F1 (macro)": 0.9971258963896763,
+        "F1 (weighted)": 0.997621891779781,
+        "Log loss": 0.007297157893685158,
+        "ROC AUC (macro OvR)": 0.9999786624247902,
+        "Top-3 accuracy": 1.0,
+        "Top-5 accuracy": 1.0
       },
       {
-        "model": "SGD log-loss",
-        "family": "Baseline lineare",
-        "fit_seconds": 74.88169479370117,
-        "training_rows": 1025602,
-        "deployment_candidate": true,
-        "accuracy": 0.9910153418700169,
-        "balanced_accuracy": 0.9891571873452975,
-        "macro_precision": 0.9844069428905453,
-        "macro_recall_sensitivity": 0.9891571873452975,
-        "macro_specificity": 0.9998134054526516,
-        "macro_f1": 0.9861915217574282,
-        "weighted_f1": 0.9908849970270118,
-        "top_3_accuracy": 0.9971611500362406,
-        "top_5_accuracy": 0.9983540710316502,
-        "log_loss": 0.23091874245392016,
-        "multiclass_brier": 0.07209936082271205,
-        "top_label_ece": 0.15700941277653477
-      },
-      {
-        "model": "Dummy prior",
-        "family": "Baseline minima",
-        "fit_seconds": 0.05887746810913086,
-        "training_rows": 1025602,
-        "deployment_candidate": false,
-        "accuracy": 0.06535395022952405,
-        "balanced_accuracy": 0.02040816326530612,
-        "macro_precision": 0.0013337540863168173,
-        "macro_recall_sensitivity": 0.02040816326530612,
-        "macro_specificity": 0.9795918367346939,
-        "macro_f1": 0.0025038703541287247,
-        "weighted_f1": 0.00801825310674056,
-        "top_3_accuracy": 0.1797233631311911,
-        "top_5_accuracy": 0.23669666586131916,
-        "log_loss": 3.7164332801572937,
-        "multiclass_brier": 0.9720116534063166,
-        "top_label_ece": 0.0025927621663182077
+        "model": "XGBoost (100/100 rounds)",
+        "Accuracy": 0.9975204629500689,
+        "Balanced accuracy": 0.9966207348979476,
+        "Precision (macro)": 0.9969960981741882,
+        "Sensitivity / Recall (macro)": 0.9966207348979476,
+        "Specificity (macro OvR)": 0.9999483554017196,
+        "F1 (macro)": 0.9966479983143728,
+        "F1 (weighted)": 0.9974894675194947,
+        "Log loss": 0.021476002569662003,
+        "ROC AUC (macro OvR)": 0.9999770954979577,
+        "Top-3 accuracy": 1.0,
+        "Top-5 accuracy": 1.0
       }
     ]
   },
-  "calibration": {
-    "strategy": "sigmoid with FrozenEstimator",
-    "fit_seconds": 7.611013889312744,
-    "comparison": [
+  "train_results": [
+    {
+      "model": "FLAML AutoML",
+      "Accuracy": 0.997453774132503,
+      "Balanced accuracy": 0.996755491281599,
+      "Precision (macro)": 0.9973848368530862,
+      "Sensitivity / Recall (macro)": 0.996755491281599,
+      "Specificity (macro OvR)": 0.9999470208326702,
+      "F1 (macro)": 0.9969559990348477,
+      "F1 (weighted)": 0.9974322538522803,
+      "Log loss": 0.0071917893424638495,
+      "ROC AUC (macro OvR)": 0.9999838136774484,
+      "Top-3 accuracy": 1.0,
+      "Top-5 accuracy": 1.0
+    },
+    {
+      "model": "XGBoost (100/100 rounds)",
+      "Accuracy": 0.997181888997499,
+      "Balanced accuracy": 0.9963640897627891,
+      "Precision (macro)": 0.997262533526544,
+      "Sensitivity / Recall (macro)": 0.9963640897627891,
+      "Specificity (macro OvR)": 0.9999413230043213,
+      "F1 (macro)": 0.9966201461363559,
+      "F1 (weighted)": 0.9971485581544306,
+      "Log loss": 0.021744277056853452,
+      "ROC AUC (macro OvR)": 0.9999800077468374,
+      "Top-3 accuracy": 1.0,
+      "Top-5 accuracy": 1.0
+    }
+  ],
+  "test_results": [
+    {
+      "model": "FLAML AutoML",
+      "Accuracy": 0.9976945334137926,
+      "Balanced accuracy": 0.9969026282479235,
+      "Precision (macro)": 0.9976742305986357,
+      "Sensitivity / Recall (macro)": 0.9969026282479235,
+      "Specificity (macro OvR)": 0.9999519951094196,
+      "F1 (macro)": 0.9971882715318385,
+      "F1 (weighted)": 0.9976736921073059,
+      "Log loss": 0.007309419574013407,
+      "ROC AUC (macro OvR)": 0.9999794435446991,
+      "Top-3 accuracy": 1.0,
+      "Top-5 accuracy": 1.0
+    },
+    {
+      "model": "XGBoost (100/100 rounds)",
+      "Accuracy": 0.9974469665320522,
+      "Balanced accuracy": 0.9965410396782612,
+      "Precision (macro)": 0.9969684156222884,
+      "Sensitivity / Recall (macro)": 0.9965410396782612,
+      "Specificity (macro OvR)": 0.9999468039527812,
+      "F1 (macro)": 0.9965854535320245,
+      "F1 (weighted)": 0.9974149395121612,
+      "Log loss": 0.02160498877145198,
+      "ROC AUC (macro OvR)": 0.9999764704465557,
+      "Top-3 accuracy": 1.0,
+      "Top-5 accuracy": 1.0
+    }
+  ],
+  "per_class_test_results": {
+    "FLAML AutoML": [
       {
-        "variant": "raw",
-        "accuracy": 0.9973121526938874,
-        "balanced_accuracy": 0.9966535503526327,
-        "macro_precision": 0.9974313151931508,
-        "macro_recall_sensitivity": 0.9966535503526327,
-        "macro_specificity": 0.9999439592578899,
-        "macro_f1": 0.9969200546391416,
-        "weighted_f1": 0.9972887327881604,
-        "top_3_accuracy": 1.0,
-        "top_5_accuracy": 1.0,
-        "log_loss": 0.008411502115900152,
-        "multiclass_brier": 0.004449251025852822,
-        "top_label_ece": 0.0008355059903309188
+        "pathology": "Acute rhinosinusitis",
+        "precision": 0.9901896664486592,
+        "sensitivity": 0.876664736537348,
+        "f1": 0.9299754299754299,
+        "support": 1727
       },
       {
-        "variant": "calibrated",
-        "accuracy": 0.9970705484416525,
-        "balanced_accuracy": 0.996543029718047,
-        "macro_precision": 0.9967816792595193,
-        "macro_recall_sensitivity": 0.996543029718047,
-        "macro_specificity": 0.9999390104338733,
-        "macro_f1": 0.9966320964646891,
-        "weighted_f1": 0.9970601380601153,
-        "top_3_accuracy": 0.9999697994684706,
-        "top_5_accuracy": 0.9999697994684706,
-        "log_loss": 0.014123225301473877,
-        "multiclass_brier": 0.0049055518239526944,
-        "top_label_ece": 0.002076260747733378
+        "pathology": "Unstable angina",
+        "precision": 1.0,
+        "sensitivity": 0.9843691849646445,
+        "f1": 0.9921230307576894,
+        "support": 2687
+      },
+      {
+        "pathology": "Chronic rhinosinusitis",
+        "precision": 0.923982869379015,
+        "sensitivity": 0.9942396313364056,
+        "f1": 0.9578246392896781,
+        "support": 2604
+      },
+      {
+        "pathology": "Viral pharyngitis",
+        "precision": 0.9997435897435898,
+        "sensitivity": 0.9969317310150857,
+        "f1": 0.9983356804506466,
+        "support": 7822
+      },
+      {
+        "pathology": "Croup",
+        "precision": 1.0,
+        "sensitivity": 0.9971098265895953,
+        "f1": 0.9985528219971056,
+        "support": 346
+      },
+      {
+        "pathology": "Acute laryngitis",
+        "precision": 0.9922505650629642,
+        "sensitivity": 0.999349593495935,
+        "f1": 0.9957874270900843,
+        "support": 3075
+      },
+      {
+        "pathology": "Myasthenia gravis",
+        "precision": 1.0,
+        "sensitivity": 0.9995640802092415,
+        "f1": 0.999781992587748,
+        "support": 2294
+      },
+      {
+        "pathology": "Acute otitis media",
+        "precision": 1.0,
+        "sensitivity": 1.0,
+        "f1": 1.0,
+        "support": 3291
+      },
+      {
+        "pathology": "Anemia",
+        "precision": 1.0,
+        "sensitivity": 1.0,
+        "f1": 1.0,
+        "support": 6441
+      },
+      {
+        "pathology": "Atrial fibrillation",
+        "precision": 1.0,
+        "sensitivity": 1.0,
+        "f1": 1.0,
+        "support": 2648
+      },
+      {
+        "pathology": "Boerhaave",
+        "precision": 1.0,
+        "sensitivity": 1.0,
+        "f1": 1.0,
+        "support": 1924
+      },
+      {
+        "pathology": "Bronchiectasis",
+        "precision": 1.0,
+        "sensitivity": 1.0,
+        "f1": 1.0,
+        "support": 2357
+      },
+      {
+        "pathology": "Bronchiolitis",
+        "precision": 1.0,
+        "sensitivity": 1.0,
+        "f1": 1.0,
+        "support": 32
+      },
+      {
+        "pathology": "Acute pulmonary edema",
+        "precision": 1.0,
+        "sensitivity": 1.0,
+        "f1": 1.0,
+        "support": 2412
+      },
+      {
+        "pathology": "Acute dystonic reactions",
+        "precision": 1.0,
+        "sensitivity": 1.0,
+        "f1": 1.0,
+        "support": 3257
+      },
+      {
+        "pathology": "Acute COPD exacerbation / infection",
+        "precision": 1.0,
+        "sensitivity": 1.0,
+        "f1": 1.0,
+        "support": 2189
+      },
+      {
+        "pathology": "Chagas",
+        "precision": 1.0,
+        "sensitivity": 1.0,
+        "f1": 1.0,
+        "support": 1145
+      },
+      {
+        "pathology": "Bronchospasm / acute asthma exacerbation",
+        "precision": 1.0,
+        "sensitivity": 1.0,
+        "f1": 1.0,
+        "support": 2431
+      },
+      {
+        "pathology": "Bronchitis",
+        "precision": 1.0,
+        "sensitivity": 1.0,
+        "f1": 1.0,
+        "support": 3354
+      },
+      {
+        "pathology": "Cluster headache",
+        "precision": 1.0,
+        "sensitivity": 1.0,
+        "f1": 1.0,
+        "support": 2647
+      },
+      {
+        "pathology": "Epiglottitis",
+        "precision": 1.0,
+        "sensitivity": 1.0,
+        "f1": 1.0,
+        "support": 2182
+      },
+      {
+        "pathology": "GERD",
+        "precision": 1.0,
+        "sensitivity": 1.0,
+        "f1": 1.0,
+        "support": 3295
+      },
+      {
+        "pathology": "Guillain-Barré syndrome",
+        "precision": 0.9996433666191156,
+        "sensitivity": 1.0,
+        "f1": 0.9998216515070447,
+        "support": 2803
+      },
+      {
+        "pathology": "Ebola",
+        "precision": 1.0,
+        "sensitivity": 1.0,
+        "f1": 1.0,
+        "support": 91
+      },
+      {
+        "pathology": "HIV (initial infection)",
+        "precision": 1.0,
+        "sensitivity": 1.0,
+        "f1": 1.0,
+        "support": 3678
+      },
+      {
+        "pathology": "Influenza",
+        "precision": 1.0,
+        "sensitivity": 1.0,
+        "f1": 1.0,
+        "support": 3396
+      },
+      {
+        "pathology": "Larygospasm",
+        "precision": 0.9991974317817014,
+        "sensitivity": 1.0,
+        "f1": 0.9995985547972702,
+        "support": 1245
+      },
+      {
+        "pathology": "Inguinal hernia",
+        "precision": 1.0,
+        "sensitivity": 1.0,
+        "f1": 1.0,
+        "support": 2562
+      },
+      {
+        "pathology": "Localized edema",
+        "precision": 1.0,
+        "sensitivity": 1.0,
+        "f1": 1.0,
+        "support": 3525
+      },
+      {
+        "pathology": "Myocarditis",
+        "precision": 1.0,
+        "sensitivity": 1.0,
+        "f1": 1.0,
+        "support": 1410
+      },
+      {
+        "pathology": "Allergic sinusitis",
+        "precision": 1.0,
+        "sensitivity": 1.0,
+        "f1": 1.0,
+        "support": 3075
+      },
+      {
+        "pathology": "Anaphylaxis",
+        "precision": 1.0,
+        "sensitivity": 1.0,
+        "f1": 1.0,
+        "support": 3527
+      },
+      {
+        "pathology": "Pancreatic neoplasm",
+        "precision": 1.0,
+        "sensitivity": 1.0,
+        "f1": 1.0,
+        "support": 2401
+      },
+      {
+        "pathology": "PSVT",
+        "precision": 1.0,
+        "sensitivity": 1.0,
+        "f1": 1.0,
+        "support": 2360
+      },
+      {
+        "pathology": "Panic attack",
+        "precision": 1.0,
+        "sensitivity": 1.0,
+        "f1": 1.0,
+        "support": 3164
+      },
+      {
+        "pathology": "Pericarditis",
+        "precision": 1.0,
+        "sensitivity": 1.0,
+        "f1": 1.0,
+        "support": 2891
+      },
+      {
+        "pathology": "Pulmonary embolism",
+        "precision": 1.0,
+        "sensitivity": 1.0,
+        "f1": 1.0,
+        "support": 3487
+      },
+      {
+        "pathology": "Pulmonary neoplasm",
+        "precision": 1.0,
+        "sensitivity": 1.0,
+        "f1": 1.0,
+        "support": 1827
+      },
+      {
+        "pathology": "Pneumonia",
+        "precision": 1.0,
+        "sensitivity": 1.0,
+        "f1": 1.0,
+        "support": 3279
+      },
+      {
+        "pathology": "Possible NSTEMI / STEMI",
+        "precision": 1.0,
+        "sensitivity": 1.0,
+        "f1": 1.0,
+        "support": 2711
+      },
+      {
+        "pathology": "Sarcoidosis",
+        "precision": 1.0,
+        "sensitivity": 1.0,
+        "f1": 1.0,
+        "support": 2722
+      },
+      {
+        "pathology": "SLE",
+        "precision": 1.0,
+        "sensitivity": 1.0,
+        "f1": 1.0,
+        "support": 1501
+      },
+      {
+        "pathology": "Scombroid food poisoning",
+        "precision": 1.0,
+        "sensitivity": 1.0,
+        "f1": 1.0,
+        "support": 2327
+      },
+      {
+        "pathology": "Spontaneous pneumothorax",
+        "precision": 1.0,
+        "sensitivity": 1.0,
+        "f1": 1.0,
+        "support": 1291
+      },
+      {
+        "pathology": "Stable angina",
+        "precision": 0.981029810298103,
+        "sensitivity": 1.0,
+        "f1": 0.9904240766073872,
+        "support": 2172
+      },
+      {
+        "pathology": "Spontaneous rib fracture",
+        "precision": 1.0,
+        "sensitivity": 1.0,
+        "f1": 1.0,
+        "support": 727
+      },
+      {
+        "pathology": "URTI",
+        "precision": 1.0,
+        "sensitivity": 1.0,
+        "f1": 1.0,
+        "support": 8177
+      },
+      {
+        "pathology": "Tuberculosis",
+        "precision": 1.0,
+        "sensitivity": 1.0,
+        "f1": 1.0,
+        "support": 2033
+      },
+      {
+        "pathology": "Whooping cough",
+        "precision": 1.0,
+        "sensitivity": 1.0,
+        "f1": 1.0,
+        "support": 716
+      }
+    ],
+    "XGBoost (100/100 rounds)": [
+      {
+        "pathology": "Acute rhinosinusitis",
+        "precision": 0.9993211133740665,
+        "sensitivity": 0.8523451071221771,
+        "f1": 0.92,
+        "support": 1727
+      },
+      {
+        "pathology": "Unstable angina",
+        "precision": 1.0,
+        "sensitivity": 0.9843691849646445,
+        "f1": 0.9921230307576894,
+        "support": 2687
+      },
+      {
+        "pathology": "Viral pharyngitis",
+        "precision": 0.9994873766500064,
+        "sensitivity": 0.9970595755561238,
+        "f1": 0.998272,
+        "support": 7822
+      },
+      {
+        "pathology": "Acute laryngitis",
+        "precision": 0.9925638538635629,
+        "sensitivity": 0.9983739837398374,
+        "f1": 0.9954604409857328,
+        "support": 3075
+      },
+      {
+        "pathology": "Chronic rhinosinusitis",
+        "precision": 0.9107767669699091,
+        "sensitivity": 0.9996159754224271,
+        "f1": 0.9531307213474918,
+        "support": 2604
+      },
+      {
+        "pathology": "Pericarditis",
+        "precision": 1.0,
+        "sensitivity": 0.9996540989277066,
+        "f1": 0.9998270195467912,
+        "support": 2891
+      },
+      {
+        "pathology": "Pneumonia",
+        "precision": 1.0,
+        "sensitivity": 0.9996950289722476,
+        "f1": 0.9998474912307458,
+        "support": 3279
+      },
+      {
+        "pathology": "Acute otitis media",
+        "precision": 1.0,
+        "sensitivity": 0.9996961409905804,
+        "f1": 0.9998480474092083,
+        "support": 3291
+      },
+      {
+        "pathology": "Bronchitis",
+        "precision": 0.9997018485390579,
+        "sensitivity": 0.9997018485390579,
+        "f1": 0.9997018485390579,
+        "support": 3354
+      },
+      {
+        "pathology": "Anemia",
+        "precision": 1.0,
+        "sensitivity": 1.0,
+        "f1": 1.0,
+        "support": 6441
+      },
+      {
+        "pathology": "Boerhaave",
+        "precision": 1.0,
+        "sensitivity": 1.0,
+        "f1": 1.0,
+        "support": 1924
+      },
+      {
+        "pathology": "Atrial fibrillation",
+        "precision": 1.0,
+        "sensitivity": 1.0,
+        "f1": 1.0,
+        "support": 2648
+      },
+      {
+        "pathology": "Anaphylaxis",
+        "precision": 1.0,
+        "sensitivity": 1.0,
+        "f1": 1.0,
+        "support": 3527
+      },
+      {
+        "pathology": "Acute COPD exacerbation / infection",
+        "precision": 1.0,
+        "sensitivity": 1.0,
+        "f1": 1.0,
+        "support": 2189
+      },
+      {
+        "pathology": "Allergic sinusitis",
+        "precision": 1.0,
+        "sensitivity": 1.0,
+        "f1": 1.0,
+        "support": 3075
+      },
+      {
+        "pathology": "Acute pulmonary edema",
+        "precision": 1.0,
+        "sensitivity": 1.0,
+        "f1": 1.0,
+        "support": 2412
+      },
+      {
+        "pathology": "Chagas",
+        "precision": 1.0,
+        "sensitivity": 1.0,
+        "f1": 1.0,
+        "support": 1145
+      },
+      {
+        "pathology": "Cluster headache",
+        "precision": 1.0,
+        "sensitivity": 1.0,
+        "f1": 1.0,
+        "support": 2647
+      },
+      {
+        "pathology": "Croup",
+        "precision": 1.0,
+        "sensitivity": 1.0,
+        "f1": 1.0,
+        "support": 346
+      },
+      {
+        "pathology": "Ebola",
+        "precision": 1.0,
+        "sensitivity": 1.0,
+        "f1": 1.0,
+        "support": 91
+      },
+      {
+        "pathology": "Epiglottitis",
+        "precision": 1.0,
+        "sensitivity": 1.0,
+        "f1": 1.0,
+        "support": 2182
+      },
+      {
+        "pathology": "GERD",
+        "precision": 1.0,
+        "sensitivity": 1.0,
+        "f1": 1.0,
+        "support": 3295
+      },
+      {
+        "pathology": "Guillain-Barré syndrome",
+        "precision": 1.0,
+        "sensitivity": 1.0,
+        "f1": 1.0,
+        "support": 2803
+      },
+      {
+        "pathology": "HIV (initial infection)",
+        "precision": 1.0,
+        "sensitivity": 1.0,
+        "f1": 1.0,
+        "support": 3678
+      },
+      {
+        "pathology": "Influenza",
+        "precision": 0.9997056226081837,
+        "sensitivity": 1.0,
+        "f1": 0.9998527896363903,
+        "support": 3396
+      },
+      {
+        "pathology": "Inguinal hernia",
+        "precision": 1.0,
+        "sensitivity": 1.0,
+        "f1": 1.0,
+        "support": 2562
+      },
+      {
+        "pathology": "Larygospasm",
+        "precision": 1.0,
+        "sensitivity": 1.0,
+        "f1": 1.0,
+        "support": 1245
+      },
+      {
+        "pathology": "Localized edema",
+        "precision": 1.0,
+        "sensitivity": 1.0,
+        "f1": 1.0,
+        "support": 3525
+      },
+      {
+        "pathology": "Bronchiectasis",
+        "precision": 1.0,
+        "sensitivity": 1.0,
+        "f1": 1.0,
+        "support": 2357
+      },
+      {
+        "pathology": "Bronchiolitis",
+        "precision": 0.9696969696969697,
+        "sensitivity": 1.0,
+        "f1": 0.9846153846153847,
+        "support": 32
+      },
+      {
+        "pathology": "Bronchospasm / acute asthma exacerbation",
+        "precision": 1.0,
+        "sensitivity": 1.0,
+        "f1": 1.0,
+        "support": 2431
+      },
+      {
+        "pathology": "Acute dystonic reactions",
+        "precision": 1.0,
+        "sensitivity": 1.0,
+        "f1": 1.0,
+        "support": 3257
+      },
+      {
+        "pathology": "Pancreatic neoplasm",
+        "precision": 1.0,
+        "sensitivity": 1.0,
+        "f1": 1.0,
+        "support": 2401
+      },
+      {
+        "pathology": "PSVT",
+        "precision": 1.0,
+        "sensitivity": 1.0,
+        "f1": 1.0,
+        "support": 2360
+      },
+      {
+        "pathology": "Myocarditis",
+        "precision": 0.9992912827781715,
+        "sensitivity": 1.0,
+        "f1": 0.9996455157745481,
+        "support": 1410
+      },
+      {
+        "pathology": "Myasthenia gravis",
+        "precision": 1.0,
+        "sensitivity": 1.0,
+        "f1": 1.0,
+        "support": 2294
+      },
+      {
+        "pathology": "Pulmonary embolism",
+        "precision": 1.0,
+        "sensitivity": 1.0,
+        "f1": 1.0,
+        "support": 3487
+      },
+      {
+        "pathology": "Pulmonary neoplasm",
+        "precision": 1.0,
+        "sensitivity": 1.0,
+        "f1": 1.0,
+        "support": 1827
+      },
+      {
+        "pathology": "Panic attack",
+        "precision": 1.0,
+        "sensitivity": 1.0,
+        "f1": 1.0,
+        "support": 3164
+      },
+      {
+        "pathology": "Possible NSTEMI / STEMI",
+        "precision": 1.0,
+        "sensitivity": 1.0,
+        "f1": 1.0,
+        "support": 2711
+      },
+      {
+        "pathology": "Sarcoidosis",
+        "precision": 1.0,
+        "sensitivity": 1.0,
+        "f1": 1.0,
+        "support": 2722
+      },
+      {
+        "pathology": "SLE",
+        "precision": 1.0,
+        "sensitivity": 1.0,
+        "f1": 1.0,
+        "support": 1501
+      },
+      {
+        "pathology": "Scombroid food poisoning",
+        "precision": 1.0,
+        "sensitivity": 1.0,
+        "f1": 1.0,
+        "support": 2327
+      },
+      {
+        "pathology": "Spontaneous pneumothorax",
+        "precision": 1.0,
+        "sensitivity": 1.0,
+        "f1": 1.0,
+        "support": 1291
+      },
+      {
+        "pathology": "Stable angina",
+        "precision": 0.981029810298103,
+        "sensitivity": 1.0,
+        "f1": 0.9904240766073872,
+        "support": 2172
+      },
+      {
+        "pathology": "Spontaneous rib fracture",
+        "precision": 1.0,
+        "sensitivity": 1.0,
+        "f1": 1.0,
+        "support": 727
+      },
+      {
+        "pathology": "URTI",
+        "precision": 0.9998777207141111,
+        "sensitivity": 1.0,
+        "f1": 0.999938856618771,
+        "support": 8177
+      },
+      {
+        "pathology": "Tuberculosis",
+        "precision": 1.0,
+        "sensitivity": 1.0,
+        "f1": 1.0,
+        "support": 2033
+      },
+      {
+        "pathology": "Whooping cough",
+        "precision": 1.0,
+        "sensitivity": 1.0,
+        "f1": 1.0,
+        "support": 716
       }
     ]
   },
-  "test_metrics": {
-    "accuracy": 0.9976138973752872,
-    "balanced_accuracy": 0.9968192141414864,
-    "macro_precision": 0.9976750558266634,
-    "macro_recall_sensitivity": 0.9968192141414864,
-    "macro_specificity": 0.9999502740435187,
-    "macro_f1": 0.997131391557756,
-    "weighted_f1": 0.9975893446155739,
-    "top_3_accuracy": 1.0,
-    "top_5_accuracy": 1.0,
-    "log_loss": 0.0075999110025417645,
-    "multiclass_brier": 0.004140010083948029,
-    "top_label_ece": 0.0008526194975886633
-  },
-  "test_inference_seconds": 5.356525659561157,
-  "severity_metrics": [
-    {
-      "severity": 1,
-      "n_pathologies": 5,
-      "mean_recall": 1.0,
-      "mean_f1": 1.0
-    },
-    {
-      "severity": 2,
-      "n_pathologies": 12,
-      "mean_recall": 0.9986868454508278,
-      "mean_f1": 0.9985489850046477
-    },
-    {
-      "severity": 3,
-      "n_pathologies": 17,
-      "mean_recall": 1.0,
-      "mean_f1": 1.0
-    },
-    {
-      "severity": 4,
-      "n_pathologies": 12,
-      "mean_recall": 0.9887496513665027,
-      "mean_f1": 0.9934379967233223
-    },
-    {
-      "severity": 5,
-      "n_pathologies": 3,
-      "mean_recall": 0.9983011770416211,
-      "mean_f1": 0.9851981351981353
-    }
-  ],
-  "lowest_recall_classes": [
-    {
-      "diagnosis": "Acute rhinosinusitis",
-      "severity": 4,
-      "support": 1829,
-      "precision": 0.9912663755458515,
-      "recall_sensitivity": 0.8687807545106616,
-      "specificity": 0.9998944988696308,
-      "f1": 0.925990675990676
-    },
-    {
-      "diagnosis": "Unstable angina",
-      "severity": 2,
-      "support": 2880,
-      "precision": 1.0,
-      "recall_sensitivity": 0.9847222222222223,
-      "specificity": 1.0,
-      "f1": 0.9923023093072079
-    },
-    {
-      "diagnosis": "Chronic rhinosinusitis",
-      "severity": 5,
-      "support": 2747,
-      "precision": 0.9192734611503531,
-      "recall_sensitivity": 0.9949035311248635,
-      "specificity": 0.9981788104596986,
-      "f1": 0.9555944055944056
-    },
-    {
-      "diagnosis": "Viral pharyngitis",
-      "severity": 4,
-      "support": 8334,
-      "precision": 0.9992791926958193,
-      "recall_sensitivity": 0.998080153587713,
-      "specificity": 0.9999524545346488,
-      "f1": 0.9986793132428863
-    },
-    {
-      "diagnosis": "Acute laryngitis",
-      "severity": 4,
-      "support": 3217,
-      "precision": 0.9950418345212272,
-      "recall_sensitivity": 0.9981349082996581,
-      "specificity": 0.9998781527963934,
-      "f1": 0.9965859714463067
-    },
-    {
-      "diagnosis": "Boerhaave",
-      "severity": 2,
-      "support": 2083,
-      "precision": 1.0,
-      "recall_sensitivity": 0.99951992318771,
-      "specificity": 1.0,
-      "f1": 0.9997599039615847
-    },
-    {
-      "diagnosis": "Acute otitis media",
-      "severity": 4,
-      "support": 3516,
-      "precision": 1.0,
-      "recall_sensitivity": 1.0,
-      "specificity": 1.0,
-      "f1": 1.0
-    },
-    {
-      "diagnosis": "Acute pulmonary edema",
-      "severity": 1,
-      "support": 2598,
-      "precision": 1.0,
-      "recall_sensitivity": 1.0,
-      "specificity": 1.0,
-      "f1": 1.0
-    },
-    {
-      "diagnosis": "Anaphylaxis",
-      "severity": 1,
-      "support": 3799,
-      "precision": 1.0,
-      "recall_sensitivity": 1.0,
-      "specificity": 1.0,
-      "f1": 1.0
-    },
-    {
-      "diagnosis": "Anemia",
-      "severity": 4,
-      "support": 6842,
-      "precision": 1.0,
-      "recall_sensitivity": 1.0,
-      "specificity": 1.0,
-      "f1": 1.0
-    }
-  ],
   "versions": {
     "python": "3.12.13",
     "numpy": "2.0.2",
     "pandas": "2.3.3",
-    "scipy": "1.16.3",
     "scikit_learn": "1.6.1",
-    "joblib": "1.5.3",
     "xgboost": "2.1.4",
-    "flaml": "2.6.0"
-  }
+    "joblib": "1.5.3"
+  },
+  "disclaimer": "Educational decision-support prototype trained on synthetic patients; not a medical diagnosis."
 }
