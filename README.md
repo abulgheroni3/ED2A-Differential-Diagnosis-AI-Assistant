@@ -189,9 +189,9 @@ FastAPI also exposes `/docs`, `/redoc` and `/openapi.json` automatically.
 ```json
 {
   "age": 65,
-  "sex": "F",
-  "evidences": ["E_91", "E_201", "E_77", "E_94", "E_79"],
-  "initial_evidence": "E_94",
+  "sex": "M",
+  "evidences": ["E_201", "E_123", "E_77", "E_66", "E_79"],
+  "initial_evidence": "E_201",
   "k": 10
 }
 ```
@@ -213,9 +213,9 @@ curl --request POST 'http://localhost:8000/predict-topk' \
   --header 'Content-Type: application/json' \
   --data '{
     "age": 65,
-    "sex": "F",
-    "evidences": ["E_91", "E_201", "E_77", "E_94", "E_79"],
-    "initial_evidence": "E_94",
+    "sex": "M",
+    "evidences": ["E_201", "E_123", "E_77", "E_66", "E_79"],
+    "initial_evidence": "E_201",
     "k": 10
   }'
 ```
@@ -224,7 +224,7 @@ Integrated request with a chest X-ray:
 
 ```bash
 curl --request POST 'http://localhost:8000/predict-integrated' \
-  --form 'payload={"age":65,"sex":"F","evidences":["E_91","E_201","E_77","E_94","E_79"],"initial_evidence":"E_94","k":10}' \
+  --form 'payload={"age":65,"sex":"M","evidences":["E_201","E_123","E_77","E_66","E_79"],"initial_evidence":"E_201","k":10}' \
   --form 'chest_xray=@samples/chest-xrays/pneumonia-compatible-opacity.png;type=image/png'
 ```
 
@@ -275,14 +275,14 @@ All five payloads were executed through the shipped preprocessor and XGBoost mod
 | Sample | Core evidence | Additional evidence | Initial evidence | Expected top-ranked diagnosis | Chest X-ray panel |
 | --- | --- | --- | --- | --- | --- |
 | `01_upper_respiratory.json` | `E_181` - nasal congestion or clear rhinorrhea; `E_201` - cough; `E_97` - sore throat | `E_48` - lives with four or more people; `E_222` - daily exposure to second-hand cigarette smoke | `E_97` | URTI | Hidden |
-| `02_respiratory_with_xray.json` | `E_91` - fever; `E_201` - cough; `E_77` - coloured or increased sputum; `E_94` - chills or shivers | `E_79` - current smoking | `E_94` | Acute COPD exacerbation / infection | Shown |
+| `02_respiratory_with_xray.json` | `E_201` - cough; `E_77` - coloured or increased sputum; `E_66` - significant shortness of breath | `E_123` - known COPD; `E_79` - current smoking | `E_201` | Acute COPD exacerbation / infection | Shown |
 | `03_exertional_cardiopulmonary.json` | `E_218` - symptoms worsen with exertion and improve with rest; `E_89` - persistent fatigue or non-restorative sleep | `E_79` - current smoking; `E_71` - hypercholesterolaemia or lipid-lowering therapy; `E_225` - early cardiovascular disease in a close relative | `E_218` | Stable angina | Hidden |
 | `04_sinonasal_allergic.json` | `E_181` - nasal congestion or clear rhinorrhea; `E_201` - cough; `E_169` - itching of the nose or back of the throat | `E_226` - predisposition to common allergies; `E_124` - asthma or previous bronchodilator use | `E_181` | Allergic sinusitis | Shown |
 | `05_pleuritic_red_flag.json` | `E_151` - swelling; `E_220` - pain worsened by deep inspiration; `E_66` - significant shortness of breath | `E_109` - previous deep-vein thrombosis; `E_196` - surgery within the previous month | `E_220` | Pulmonary embolism | Shown |
 
 These expected outputs are specific to the included artifacts. Re-run the cases whenever the model, preprocessor, label encoder or payloads change. The validation scope and suggested demonstration sequence are documented in `samples/README.md`.
 
-Case 02 uses `k=10`. With the current clinical artifacts, **Pneumonia appears at rank 7**, so the effect of image assisted re-ranking remains visible. In a deterministic fusion check using the default threshold and weight, a supporting image-model score of `0.9` increased the Pneumonia value from `2.507%` to `4.475%` and moved it from rank 7 to rank 6; a non-supporting score of `0.1` reduced it to `1.391%`. These two image scores are controlled fusion-test inputs, not predictions from the sample radiographs.
+Case 02 uses a 65-year-old male and `k=10`. With the current clinical artifacts, **Acute COPD exacerbation / infection is ranked first at `88.457%` and Pneumonia is ranked seventh at `0.094%`**, so the image-assisted re-ranking remains visible. In a deterministic fusion check using the default threshold and weight, a supporting image-model score of `0.9` increased the Pneumonia value to `0.171%` and moved it from rank 7 to rank 6; a non-supporting score of `0.1` reduced it to `0.052%` and moved it to rank 8. These two image scores are controlled fusion-test inputs, not predictions from the sample radiographs.
 
 Run one of the examples against the JSON endpoint from the repository root:
 

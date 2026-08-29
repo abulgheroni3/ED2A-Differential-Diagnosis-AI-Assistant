@@ -472,17 +472,14 @@
 
                     function syncXrayVisibility() {
                         const shouldShow = shouldShowXrayAssessment(selectedEvidence);
-                        const wasVisible = !xraySection.hidden;
                         xraySection.hidden = !shouldShow;
                         if (shouldShow) {
                             return;  // a valid image already chosen stays selected
                         }
+                        /* Only the upload control is reset here. An already
+                           rendered prediction stays visible until the user
+                           explicitly clears all evidence. */
                         clearXrayFile();
-                        if (wasVisible) {
-                            /* Let the results panel drop any assessment that no
-                               longer applies, without duplicating its logic. */
-                            document.dispatchEvent(new CustomEvent("ed2a:xray-inapplicable"));
-                        }
                     }
 
                     function formatXrayFileSize(bytes) {
@@ -728,6 +725,10 @@
                     clearButton.addEventListener("click", () => {
                         selectedEvidence.clear();
                         syncSelectedEvidence();
+                        setSearchStatus("");
+                        /* The results panel owns the prediction reset; this is the
+                           only action allowed to trigger it. */
+                        document.dispatchEvent(new CustomEvent("ed2a:evidence-cleared"));
                     });
 
                     xrayFileInput.addEventListener("change", () => {
@@ -1117,6 +1118,24 @@
                 const assessmentWarnings = document.getElementById("assessment-warnings");
                 const assessmentWarningsList = document.getElementById("assessment-warnings-list");
                 const clinicalHeadingDefault = clinicalHeading.textContent;
+                /* The pristine results panel, read before anything is rendered, so
+                   "Clear all evidences" restores the real initial appearance
+                   instead of inventing a placeholder. */
+                const initialResultsState = {
+                    diagnosis: resultDiagnosis.textContent,
+                    probability: resultProbability.textContent,
+                    rankedLabel: rankedResultsLabel.textContent,
+                    urgencyPanelClass: urgencyPanel.className,
+                    urgencyIcon: urgencyIcon.textContent,
+                    urgencyLevel: urgencyLevel.textContent,
+                    urgencyMessage: urgencyMessage.textContent,
+                    urgencySeverityHidden: urgencyDatasetSeverity.hidden,
+                    urgencySeverityValue: urgencyDatasetSeverityValue.textContent,
+                    urgencySource: urgencySourceValue.textContent,
+                    disclaimer: resultDisclaimer.textContent,
+                    unavailableMessage: unavailableMessage.textContent,
+                    errorMessage: errorMessage.textContent,
+                };
                 const pubmedForm = document.getElementById("clinical-evidence-form");
                 const pubmedQuery = document.getElementById("pubmed-query");
                 const pubmedArticleType = document.getElementById("pubmed-article-type");
@@ -1132,6 +1151,7 @@
                 let pubmedRequestToken = 0;
                 let pubmedRequestPending = false;
                 let predictionPending = false;
+                let predictionGeneration = 0;
                 const validUrgencyLevels = new Set(["low", "moderate", "high", "unavailable"]);
                 const urgencyLabels = {
                     low: "Low urgency",
@@ -1326,6 +1346,31 @@
                     fusionRankChange.textContent = "";
                     fusionRankChange.hidden = true;
                     setXrayResultWarning("");
+                }
+
+                function resetPredictionStateAndUI() {
+                    /* Full application-state reset for "Clear all evidences" only.
+                       Stable DOM nodes and their listeners are preserved. */
+                    predictionGeneration += 1;  // a late response can no longer land
+                    normalizedResult = null;
+                    demoBanner.hidden = true;
+                    clearAssessmentSections();
+                    disableEvidenceSearch();
+                    topDiagnosesBody.replaceChildren();
+                    resultDiagnosis.textContent = initialResultsState.diagnosis;
+                    resultProbability.textContent = initialResultsState.probability;
+                    rankedResultsLabel.textContent = initialResultsState.rankedLabel;
+                    urgencyPanel.className = initialResultsState.urgencyPanelClass;
+                    urgencyIcon.textContent = initialResultsState.urgencyIcon;
+                    urgencyLevel.textContent = initialResultsState.urgencyLevel;
+                    urgencyMessage.textContent = initialResultsState.urgencyMessage;
+                    urgencyDatasetSeverity.hidden = initialResultsState.urgencySeverityHidden;
+                    urgencyDatasetSeverityValue.textContent = initialResultsState.urgencySeverityValue;
+                    urgencySourceValue.textContent = initialResultsState.urgencySource;
+                    resultDisclaimer.textContent = initialResultsState.disclaimer;
+                    unavailableMessage.textContent = initialResultsState.unavailableMessage;
+                    errorMessage.textContent = initialResultsState.errorMessage;
+                    setResultsState("idle");
                 }
 
                 function renderImagingAssessment(imaging, analysed) {
@@ -1535,6 +1580,7 @@
                     setResultsState("loading");
                     disableEvidenceSearch();
                     predictionPending = true;
+                    const generation = ++predictionGeneration;
                     setPredictionControlsDisabled(true);
                     try {
                         /* The browser generates the multipart boundary itself: the
@@ -1556,6 +1602,9 @@
                             body,
                         });
                         const payload = await response.json().catch(() => ({}));
+                        if (generation !== predictionGeneration) {
+                            return;  // the evidence was cleared while this request ran
+                        }
                         if (!response.ok) {
                             const message = apiErrorMessage(payload, `Prediction request failed with status ${response.status}.`);
                             if (response.status === 503) {
@@ -1567,7 +1616,9 @@
                         }
                         renderIntegratedResponse(payload);
                     } catch (error) {
-                        showError("The prediction service could not be reached.");
+                        if (generation === predictionGeneration) {
+                            showError("The prediction service could not be reached.");
+                        }
                     } finally {
                         predictionPending = false;
                         setPredictionControlsDisabled(false);
@@ -1819,7 +1870,7 @@
                 if (xrayRemoveButton) {
                     xrayRemoveButton.addEventListener("click", clearAssessmentSections);
                 }
-                document.addEventListener("ed2a:xray-inapplicable", clearAssessmentSections);
+                document.addEventListener("ed2a:evidence-cleared", resetPredictionStateAndUI);
                 topKInput.addEventListener("invalid", (event) => {
                     /* Replace the transient native bubble with the persistent inline message. */
                     event.preventDefault();
