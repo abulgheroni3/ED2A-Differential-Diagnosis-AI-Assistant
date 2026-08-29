@@ -2,7 +2,7 @@
   <img src="API_App/imgs/ed2a-logo.png" alt="ED²A logo" width="180">
 </p>
 
-<h1 align="center">ED²A — Explainable Differential Diagnosis Assistant</h1>
+<h1 align="center">ED²A - Explainable Differential Diagnosis Assistant</h1>
 
 <p align="center">
   An explainable, multimodal decision-support prototype for telemedicine triage.
@@ -277,11 +277,11 @@ All five payloads were executed through the shipped preprocessor and XGBoost mod
 
 | Sample | Core evidence | Additional evidence | Initial evidence | Expected top-ranked diagnosis | Chest X-ray panel |
 | --- | --- | --- | --- | --- | --- |
-| `01_upper_respiratory.json` | `E_181` — nasal congestion or clear rhinorrhea; `E_201` — cough; `E_97` — sore throat | `E_48` — lives with four or more people; `E_222` — daily exposure to second-hand cigarette smoke | `E_97` | URTI | Hidden |
-| `02_respiratory_with_xray.json` | `E_91` — fever; `E_201` — cough; `E_77` — coloured or increased sputum; `E_94` — chills or shivers | `E_79` — current smoking | `E_94` | Acute COPD exacerbation / infection | Shown |
-| `03_exertional_cardiopulmonary.json` | `E_218` — symptoms worsen with exertion and improve with rest; `E_89` — persistent fatigue or non-restorative sleep | `E_79` — current smoking; `E_71` — hypercholesterolaemia or lipid-lowering therapy; `E_225` — early cardiovascular disease in a close relative | `E_218` | Stable angina | Hidden |
-| `04_sinonasal_allergic.json` | `E_181` — nasal congestion or clear rhinorrhea; `E_201` — cough; `E_169` — itching of the nose or back of the throat | `E_226` — predisposition to common allergies; `E_124` — asthma or previous bronchodilator use | `E_181` | Allergic sinusitis | Shown |
-| `05_pleuritic_red_flag.json` | `E_151` — swelling; `E_220` — pain worsened by deep inspiration; `E_66` — significant shortness of breath | `E_109` — previous deep-vein thrombosis; `E_196` — surgery within the previous month | `E_220` | Pulmonary embolism | Shown |
+| `01_upper_respiratory.json` | `E_181` - nasal congestion or clear rhinorrhea; `E_201` - cough; `E_97` - sore throat | `E_48` - lives with four or more people; `E_222` - daily exposure to second-hand cigarette smoke | `E_97` | URTI | Hidden |
+| `02_respiratory_with_xray.json` | `E_91` - fever; `E_201` - cough; `E_77` - coloured or increased sputum; `E_94` - chills or shivers | `E_79` - current smoking | `E_94` | Acute COPD exacerbation / infection | Shown |
+| `03_exertional_cardiopulmonary.json` | `E_218` - symptoms worsen with exertion and improve with rest; `E_89` - persistent fatigue or non-restorative sleep | `E_79` - current smoking; `E_71` - hypercholesterolaemia or lipid-lowering therapy; `E_225` - early cardiovascular disease in a close relative | `E_218` | Stable angina | Hidden |
+| `04_sinonasal_allergic.json` | `E_181` - nasal congestion or clear rhinorrhea; `E_201` - cough; `E_169` - itching of the nose or back of the throat | `E_226` - predisposition to common allergies; `E_124` - asthma or previous bronchodilator use | `E_181` | Allergic sinusitis | Shown |
+| `05_pleuritic_red_flag.json` | `E_151` - swelling; `E_220` - pain worsened by deep inspiration; `E_66` - significant shortness of breath | `E_109` - previous deep-vein thrombosis; `E_196` - surgery within the previous month | `E_220` | Pulmonary embolism | Shown |
 
 These expected outputs are specific to the included artifacts. Re-run the cases whenever the model, preprocessor, label encoder or payloads change. The validation scope and suggested demonstration sequence are documented in `samples/README.md`.
 
