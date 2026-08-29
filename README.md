@@ -77,7 +77,7 @@ Training notebooks and raw datasets are not required at runtime and should remai
 
 ### Prerequisites
 
-- Docker Desktop or Docker Engine with Compose v2.
+- Docker Desktop installed and running, or Docker Engine with Docker Compose v2;
 - The inference artifacts listed in [Model artifacts](#model-artifacts) must be present before the image is built; the container does not download models at runtime.
 
 From the application directory:
