@@ -252,7 +252,7 @@ An invalid, oversized or unreadable image does not discard a valid clinical resu
 
 ## Demonstration samples
 
-`samples/` is a clear and conventional name for material used during a project demonstration. A practical layout is:
+`samples/` different samples images and clinical examples have been updated to check the validity of the model. the examples layout structure is as follows:
 
 ```text
 samples/
